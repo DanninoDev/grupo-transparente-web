@@ -1,0 +1,29 @@
+---
+const { title = "Transparente" } = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    <!-- ✅ Tailwind CDN -->
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ Config inline (opcional) -->
+    <script is:inline>
+      tailwind.config = {
+        theme: {
+          extend: {
+            boxShadow: { soft: "0 18px 60px rgba(2, 6, 23, 0.18)" },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-white text-slate-900">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,130 @@
+---
+const cards = [
+  {
+    label: "Misión",
+    title: "Misión",
+    text: "Profesionalizar el entorno logístico, optimizando y proyectando a empresas y transportistas en el futuro.",
+    image:
+      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1400&q=80",
+    icon: "/img/icons/icon1.png",
+  },
+  {
+    label: "Visión",
+    title: "Visión",
+    text: "Ser el referente de la gestión empresarial y visibilidad logística para México y América.",
+    image:
+      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80",
+    icon: "/img/icons/icon2.png",
+  },
+  {
+    label: "Valores",
+    title: "Valores y principios",
+    text: "Gratitud, Libertad, Integridad, Audacia, Fe y Visión.",
+    image:
+      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80",
+    icon: "/img/icons/icon3.png",
+    chips: ["Gratitud", "Libertad", "Integridad", "Audacia", "Fe", "Visión"],
+  },
+];
+---
+
+<section class="relative overflow-hidden bg-[#061a44] py-20 md:py-28">
+  <!-- Fondo -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.10),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.14),transparent_30%)]"></div>
+    <div class="absolute -top-28 left-10 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl"></div>
+    <div class="absolute right-0 top-1/3 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-sky-400/10 blur-3xl"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <!-- Encabezado -->
+    <div class="mx-auto max-w-3xl text-center">
+      <div class="inline-flex items-center rounded-full border border-cyan-300/20 bg-white/5 px-4 py-2 text-sm font-medium text-cyan-200 backdrop-blur-md">
+        Nuestra esencia
+      </div>
+
+      <h2 class="mt-6 text-4xl font-semibold tracking-tight text-white md:text-6xl">
+        Ser <span class="text-cyan-300">Transparente</span>
+      </h2>
+
+      <p class="mt-5 text-base leading-7 text-white/80 md:text-lg">
+        “Contemos juntos historias de Logística y Transporte Profesional”
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="mt-14 grid gap-7 lg:grid-cols-3">
+      {cards.map((card) => (
+        <article class="group overflow-hidden rounded-[2rem] border border-white/10 bg-[#0a245e]/90 shadow-[0_24px_70px_rgba(0,0,0,0.32)] backdrop-blur-sm transition duration-500 hover:-translate-y-2 hover:shadow-[0_35px_90px_rgba(0,0,0,0.40)]">
+          <!-- Imagen -->
+          <div class="relative h-[290px] overflow-hidden">
+            <img
+              src={card.image}
+              alt={card.title}
+              class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+            />
+
+            <!-- overlays premium -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#061a44]/95 via-[#082763]/68 to-[#0f3279]/18"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#061a44]/48 via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),transparent_28%,transparent_72%,rgba(0,0,0,0.18))]"></div>
+
+            <div class="relative z-10 flex h-full flex-col justify-between p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex h-16 w-16 items-center justify-center rounded-[1.35rem] border border-cyan-300/20 bg-cyan-300/10 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  <img
+                    src={card.icon}
+                    alt={`Ícono de ${card.title}`}
+                    class="h-8 w-8 object-contain"
+                    loading="lazy"
+                  />
+                </div>
+
+                <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/95 backdrop-blur-md">
+                  {card.label}
+                </span>
+              </div>
+
+              <div>
+                <h3 class="max-w-sm text-[2rem] font-bold leading-[1.05] tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)] md:text-[2.3rem]">
+                  {card.title}
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="relative border-t border-white/10 bg-[linear-gradient(180deg,#0a2a6d_0%,#08245d_100%)] px-7 py-7">
+            <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.04),transparent_42%)]"></div>
+
+            <div class="relative z-10">
+              <p class="text-lg leading-8 text-white/90">
+                {card.text}
+              </p>
+
+              {card.chips ? (
+                <div class="mt-7 grid grid-cols-2 gap-3">
+                  {card.chips.map((chip) => (
+                    <div class="rounded-2xl border border-white/10 bg-white/6 px-4 py-3 text-center text-sm font-semibold text-white/95 transition duration-300 hover:border-cyan-300/30 hover:bg-cyan-300/10">
+                      {chip}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div class="mt-7 flex items-center gap-4">
+                  <div class="h-1.5 w-24 rounded-full bg-gradient-to-r from-cyan-300 to-blue-400"></div>
+                  <span class="text-base font-semibold tracking-wide text-cyan-100">
+                    Transparente
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

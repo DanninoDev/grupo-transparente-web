@@ -1,0 +1,278 @@
+---
+// components/servicios/ServiciosTransporte-v3.astro
+import ServiceCard from "./ServiceCard.astro";
+
+const sectionPill = "NUESTROS SERVICIOS";
+const sectionDesc =
+  "Nuestros servicios son las soluciones integrales para la profesionalización del transporte y la logística";
+
+const services = [
+  {
+    title: "Socios del Transporte",
+    badge: "Transparente",
+    desc: "Un gran programa basado en volver a los básicos e impulso estratégico, creando soluciones a la medida con un objetivo claro: Control, Crecimiento, Ingresos y Servicio.",
+    chips: [
+      "Mapeo total de la cadena de suministro",
+      "Evaluación de proveedores logísticos",
+      "Optimización de rutas y dimensionamiento de flota",
+      "Diseño y estandarización de estructura operativa",
+      "Modelo de gestión y plan de continuidad",
+      "Inteligencia logística y visibilidad",
+      "Estructura de costos",
+      "Estudios y análisis situacional de mercado",
+      "Benchmark y mejores prácticas",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1600&h=900&fit=crop",
+    delay: "120ms",
+    icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 0 014 0zM7 10a2 2 0 11-4 0 2 0 014 0z" />
+    </svg>`,
+  },
+  {
+    title: "Consultoría en Logística y Transporte",
+    badge: "Estrategia + Ejecución",
+    desc: "Procesos, KPIs y disciplina operativa que sí se sostiene.",
+    chips: [
+      "Catálogos",
+      "Base de datos",
+      "Conexiones",
+      "Transformación",
+      "visualización",
+      "automatización",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&h=900&fit=crop",
+    delay: "180ms",
+    icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+    </svg>`,
+  },
+  {
+    title: "Gemelo Logístico",
+    badge: "Operación guiada",
+    desc: "Operamos tu empresa con base en tus reglas de negocio, en los rubros: Operativo, administrativo y Control",
+chips: [
+  "Planeación",
+  "Registro Gastos",
+  "Ejecución del viaje",
+  "Control Inventarios",
+  "Evidencias",
+  "Catálogos",
+  "Notificaciones",
+  "Validaciones",
+  "Control Documental",
+  "Logística Inversa",
+  "Facturación",
+  "Reportes",
+  "Alertas",
+  "Indicadores",
+],
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop",
+    delay: "240ms",
+    icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>`,
+  },
+  {
+    title: "Inteligencia Logística",
+    badge: "Data para decidir",
+    desc: "Conexión de transporte para atender las cargas de nuestros clientes, con socios confiables pero con un servicio profesional — nuestra etiqueta Transparente.",
+chips: [
+  "Recursos: Auto, 1 tonelada, 3.5 toneladas, Rabón, Torton, Tráiler de 40, 48 y 53 pies",
+  "Tipos: Caja seca y plataforma, todas las configuraciones",
+  "Cobertura: Nacional en todas las configuraciones con protocolos de seguridad establecidos",
+  "Proyectos: Hechos a la medida (evaluación de factibilidad, capacidad y recomendaciones)",
+],
+    image:
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&h=900&fit=crop",
+    delay: "300ms",
+    icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+    </svg>`,
+  },
+];
+---
+
+<section class="bg-gradient-to-b from-white via-gray-50 to-white px-4">
+  <div class="max-w-7xl mx-auto pt-20 md:pt-24 pb-10">
+    <div class="max-w-3xl mb-10 md:mb-14">
+      <span
+        class="st-reveal inline-block px-4 py-2 bg-[#0C245C]/10 text-[#0C245C] text-sm font-semibold rounded-full mb-6"
+        style="--d:0ms"
+      >
+        {sectionPill}
+      </span>
+
+      <h1 class="text-5xl md:text-6xl font-extrabold text-[#0C245C] leading-tight mb-6 tracking-tight">
+        <span
+          class="st-typewrap inline-block align-top"
+          data-type-lines="Impulsa tu operación,|brinda un gran servicio"
+        >
+          <span class="st-type-fallback block">
+            Impulsa tu operación,<br />brinda un gran servicio
+          </span>
+
+          <span class="st-type-live hidden">
+            <span class="st-type-line block">
+              <span class="st-type-text"></span><span class="st-caret" aria-hidden="true"></span>
+            </span>
+            <span class="st-type-line block">
+              <span class="st-type-text"></span><span class="st-caret" aria-hidden="true"></span>
+            </span>
+          </span>
+        </span>
+      </h1>
+
+      <p class="st-reveal text-xl text-gray-600 leading-relaxed" style="--d:220ms">
+        {sectionDesc}
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-8 md:gap-10">
+      {services.map((s) => (
+        <ServiceCard
+          title={s.title}
+          desc={s.desc}
+          chips={s.chips}
+          delay={s.delay}
+          badge={s.badge}
+          icon={s.icon}
+          image={s.image}
+          href="https://wa.me/525524685599?text=Hola%20%F0%9F%91%8B%20Vengo%20desde%20tu%20sitio%20web.%20Me%20interesa%20agendar%20una%20reuni%C3%B3n%20para%20conocer%20c%C3%B3mo%20pueden%20ayudarme%20con%20transporte%20y%20log%C3%ADstica.%20%C2%BFMe%20compartes%20disponibilidad%20esta%20semana%3F"
+          cta="Agendar diagnóstico"
+        />
+      ))}
+    </div>
+  </div>
+
+  <script is:inline>
+    const prefersReduced =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const revealEls = Array.from(document.querySelectorAll(".st-reveal"));
+    if (prefersReduced) {
+      revealEls.forEach((el) => el.classList.add("st-in"));
+    } else if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("st-in");
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.12 });
+
+      revealEls.forEach((el) => io.observe(el));
+      setTimeout(() => revealEls.forEach((el) => el.classList.add("st-in")), 1100);
+    } else {
+      revealEls.forEach((el) => el.classList.add("st-in"));
+    }
+
+    const wrap = document.querySelector(".st-typewrap");
+    if (wrap) {
+      const live = wrap.querySelector(".st-type-live");
+      const fallback = wrap.querySelector(".st-type-fallback");
+
+      if (prefersReduced) {
+        if (live) live.classList.add("hidden");
+        if (fallback) fallback.classList.remove("hidden");
+      } else if (live && fallback) {
+        fallback.classList.add("hidden");
+        live.classList.remove("hidden");
+
+        const raw = wrap.getAttribute("data-type-lines") || "";
+        const lines = raw.split("|").map((s) => s.trim()).filter(Boolean);
+
+        const textEls = Array.from(wrap.querySelectorAll(".st-type-text"));
+        const caretEls = Array.from(wrap.querySelectorAll(".st-caret"));
+        caretEls.forEach((c, i) => (c.style.opacity = i === 0 ? "1" : "0"));
+
+        const speed = 28;
+        const linePause = 260;
+        let li = 0, ci = 0;
+
+        const tick = () => {
+          if (li >= lines.length) {
+            caretEls.forEach((c, i) => (c.style.opacity = i === lines.length - 1 ? "1" : "0"));
+            return;
+          }
+
+          const cur = lines[li];
+          if (!textEls[li]) return;
+
+          textEls[li].textContent = cur.slice(0, ci);
+
+          if (ci < cur.length) {
+            ci++;
+            setTimeout(tick, speed);
+          } else {
+            li++;
+            ci = 0;
+            caretEls.forEach((c, i) => (c.style.opacity = i === li ? "1" : "0"));
+            setTimeout(tick, linePause);
+          }
+        };
+
+        tick();
+      }
+    }
+  </script>
+
+  <style>
+    .st-reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      filter: blur(4px);
+    }
+
+    .st-reveal.st-in {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+      transition:
+        opacity 700ms cubic-bezier(.2,.8,.2,1),
+        transform 700ms cubic-bezier(.2,.8,.2,1),
+        filter 700ms cubic-bezier(.2,.8,.2,1);
+      transition-delay: var(--d, 0ms);
+    }
+
+    .st-caret {
+      display: inline-block;
+      width: .6ch;
+      margin-left: 2px;
+      border-right: 3px solid currentColor;
+      transform: translateY(1px);
+      animation: st-blink 900ms step-end infinite;
+      opacity: 1;
+    }
+
+    @keyframes st-blink {
+      50% { opacity: 0; }
+    }
+
+    .st-type-line {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      .st-type-line {
+        white-space: normal;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .st-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
+
+      .st-caret {
+        animation: none;
+        display: none;
+      }
+    }
+  </style>
+</section>

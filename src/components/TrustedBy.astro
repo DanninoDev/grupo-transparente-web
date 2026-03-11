@@ -1,0 +1,109 @@
+---
+const title = "Empresas que confían en nosotros";
+const subtitle = "Marcas que respaldan nuestra operación, procesos y resultados.";
+
+const logos = [
+  { src: "/img/logos/durrlogo.png", alt: "Dürr" },
+  { src: "/img/logos/consorciologo.png", alt: "Consorcio" },
+  { src: "/img/logos/peltmx_logo.jpg", alt: "Pelt MX" },
+  { src: "/img/logos/Pepsicologo.svg", alt: "PepsiCo" },
+  { src: "/img/logos/tecnoalimentoslogo.png", alt: "Tecnoalimentos" },
+  { src: "/img/logos/ucaplogo.jpg", alt: "UCAP" },
+];
+
+const track = [...logos, ...logos];
+---
+
+<section class="relative overflow-hidden isolate -mt-px">
+  <!-- Fondo azul premium -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#04122b] via-[#0a2454] to-[#1a4399]"></div>
+
+  <!-- Puntitos blancos pequeños (súper sutil) -->
+  <div
+    class="absolute inset-0 opacity-[0.16]"
+    style="
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.35) 1px, transparent 0);
+      background-size: 22px 22px;
+    "
+  ></div>
+
+  <!-- Aurora/glow superior sutil para “premium” -->
+  <div class="absolute -top-28 left-1/2 -translate-x-1/2 w-[900px] h-[260px] rounded-full blur-3xl bg-cyan-400/10"></div>
+
+  <!-- Vignette superior/inferior -->
+  <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/22 to-transparent"></div>
+  <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/14 to-transparent"></div>
+
+  <!-- Header (centrado) -->
+  <div class="relative max-w-7xl mx-auto px-5 pt-14 pb-8 text-white">
+    <div class="text-center">
+      <h2 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+        {title}
+      </h2>
+      <p class="mt-3 text-white/75 text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+        {subtitle}
+      </p>
+      <div class="mt-6 mx-auto h-px w-44 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+    </div>
+  </div>
+
+  <!-- ✅ Slider FULL WIDTH -->
+  <div class="relative w-screen left-1/2 -translate-x-1/2 pb-16">
+    <!-- Fades laterales -->
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[#04122b] to-transparent z-10"></div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-[#1a4399] to-transparent z-10"></div>
+
+    <!-- Rail glass sin bordes -->
+    <div class="bg-white/6 backdrop-blur-md shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
+      <div class="h-px w-full bg-gradient-to-r from-transparent via-white/18 to-transparent"></div>
+
+      <div class="marquee flex items-center gap-10 md:gap-14 py-9 px-8 will-change-transform">
+        {track.map((l, idx) => (
+          <div class="min-w-[190px] md:min-w-[230px] flex justify-center" key={`${l.alt}-${idx}`}>
+            <!-- Card blanca para logos -->
+            <div
+              class="group w-[180px] md:w-[210px] h-[74px] md:h-[82px]
+                     rounded-2xl bg-white
+                     shadow-[0_18px_55px_rgba(2,6,23,0.22)]
+                     flex items-center justify-center
+                     transition duration-300
+                     hover:-translate-y-[1px] hover:shadow-[0_24px_70px_rgba(2,6,23,0.28)]"
+            >
+              <img
+                src={l.src}
+                alt={l.alt}
+                loading="lazy"
+                class="max-h-[46px] md:max-h-[52px] w-auto object-contain
+                       opacity-100 grayscale-0
+                       transition duration-300
+                       saturate-[1.08] contrast-[1.06]
+                       group-hover:saturate-[1.12] group-hover:contrast-[1.10]"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+    </div>
+  </div>
+
+  <style is:inline>
+    section { transform: translateZ(0); }
+
+    /* ✅ Slider infinito SIN detenerse al hover */
+    .marquee {
+      animation: marquee 32s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee { animation: none; }
+    }
+
+    /* Loop perfecto: duplicamos y movemos 50% */
+    @keyframes marquee {
+      0% { transform: translate3d(0,0,0); }
+      100% { transform: translate3d(-50%,0,0); }
+    }
+  </style>
+</section>

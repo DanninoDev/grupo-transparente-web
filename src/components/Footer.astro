@@ -1,0 +1,324 @@
+---
+import Icon from "./Icon.astro";
+
+type IconKey = "user" | "linkedin" | "mail" | "instagram" | "facebook";
+
+const currentYear = new Date().getFullYear();
+
+const navigation = {
+  soluciones: [
+    { label: "Operacion general de Transporte", href: "" },
+    { label: "Estructura de empresa", href: "" },
+    { label: "Estructura de costos", href: "" },
+    { label: "Objetivos e indicadores", href: "" },
+  ],
+  servicios: [
+    { label: "Socios del transporte", href: "#consultoria" },
+    { label: "Gemelo logistico", href: "#capacitacion" },
+    { label: "Consultoria en Logistica y Transporte", href: "#auditoria" },
+    { label: "Inteligencia Logistica", href: "#soporte" },
+  ],
+  empresa: [
+    { label: "Nosotros", href: "nosotros/" },
+    { label: "Metodología", href: "#metodologia" },
+    
+  ],
+  legal: [
+    { label: "Política de Privacidad", href: "#privacidad" },
+  ],
+} as const;
+
+const socials = [
+  { name: "linkedin", href: "https://www.linkedin.com/company/grupotransparente01/", label: "LinkedIn" },
+  { name: "mail", href: "mailto:diego@consultoriatransparente.com", label: "Email" },
+  { name: "instagram", href: "https://www.instagram.com/grupo.transparente/", label: "Instagram" },
+  { name: "facebook", href: "https://www.facebook.com/profile.php?id=100085576855283", label: "Facebook" },
+] as const satisfies ReadonlyArray<{ name: IconKey; href: string; label: string }>;
+
+const contact = {
+  email: "diego@consultoriatransparente.com",
+  phone: "+52 442 468 5599",
+  address: "Querétaro, México",
+} as const;
+---
+
+<footer class="relative bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
+  
+  <!-- Decorative top border -->
+  <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-5">
+    
+    <!-- Main Footer Content -->
+    <div class="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+      
+      <!-- Brand Column -->
+      <div class="lg:col-span-4">
+        <a href="/" class="group inline-flex items-center gap-3 mb-6">
+          <img src="/img/logo.png" alt="Transparente Logo" class="h-10 w-auto" />
+          <div class="leading-tight">
+            <p class="text-base font-bold text-slate-900 group-hover:text-slate-950 transition tracking-wide">
+              TRAN<span class="text-cyan-500">$</span>PARENTE
+            </p>
+            <p class="text-xs text-slate-500 tracking-wider">
+              Consultoría & Logística
+            </p>
+          </div>
+        </a>
+
+        <p class="text-sm text-slate-600 leading-relaxed mb-6 max-w-sm">
+          Transformamos operaciones de transporte en sistemas eficientes y rentables mediante metodologías probadas y tecnología de punta.
+        </p>
+
+        <!-- Contact Info -->
+        <div class="space-y-3 mb-8">
+          <a 
+            href={`mailto:${contact.email}`}
+            class="group flex items-center gap-3 text-sm text-slate-600 hover:text-slate-900 transition"
+          >
+            <div class="flex items-center justify-center w-9 h-9 rounded-xl bg-slate-100 group-hover:bg-cyan-50 transition">
+              <Icon name="mail" class="w-4 h-4 text-slate-700 group-hover:text-cyan-600 transition" />
+            </div>
+            <span class="font-medium">{contact.email}</span>
+          </a>
+
+          <div class="flex items-center gap-3 text-sm text-slate-600">
+            <div class="flex items-center justify-center w-9 h-9 rounded-xl bg-slate-100">
+              <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <span class="font-medium">{contact.phone}</span>
+          </div>
+
+          <div class="flex items-center gap-3 text-sm text-slate-600">
+            <div class="flex items-center justify-center w-9 h-9 rounded-xl bg-slate-100">
+              <svg class="w-4 h-4 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <span class="font-medium">{contact.address}</span>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex items-center gap-2">
+          {socials.map((social) => (
+            <a
+              href={social.href}
+              aria-label={social.label}
+              class="group inline-flex items-center justify-center w-10 h-10 rounded-xl
+                     border border-slate-200 bg-white text-slate-600
+                     hover:border-cyan-400 hover:bg-cyan-50 hover:text-cyan-600
+                     transition-all duration-300 active:scale-95"
+            >
+              <span class="transition-transform duration-300 group-hover:scale-110">
+                <Icon name={social.name} class="w-[18px] h-[18px]" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Navigation Columns -->
+      <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+        
+        <!-- Soluciones -->
+        <div>
+          <h3 class="text-xs font-bold tracking-[0.15em] text-slate-900 uppercase mb-5">
+            Nuestros Modulos
+          </h3>
+          <ul class="space-y-3">
+            {navigation.soluciones.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="group inline-flex items-center text-sm text-slate-600 hover:text-slate-900 transition"
+                >
+                  <span class="w-0 group-hover:w-2 h-[2px] bg-cyan-500 mr-0 group-hover:mr-2 transition-all duration-300 rounded-full"></span>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Servicios -->
+        <div>
+          <h3 class="text-xs font-bold tracking-[0.15em] text-slate-900 uppercase mb-5">
+            Servicios
+          </h3>
+          <ul class="space-y-3">
+            {navigation.servicios.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="group inline-flex items-center text-sm text-slate-600 hover:text-slate-900 transition"
+                >
+                  <span class="w-0 group-hover:w-2 h-[2px] bg-cyan-500 mr-0 group-hover:mr-2 transition-all duration-300 rounded-full"></span>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Empresa -->
+        <div>
+          <h3 class="text-xs font-bold tracking-[0.15em] text-slate-900 uppercase mb-5">
+            Empresa
+          </h3>
+          <ul class="space-y-3">
+            {navigation.empresa.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="group inline-flex items-center text-sm text-slate-600 hover:text-slate-900 transition"
+                >
+                  <span class="w-0 group-hover:w-2 h-[2px] bg-cyan-500 mr-0 group-hover:mr-2 transition-all duration-300 rounded-full"></span>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h3 class="text-xs font-bold tracking-[0.15em] text-slate-900 uppercase mb-5">
+            Legal
+          </h3>
+          <ul class="space-y-3">
+            {navigation.legal.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="group inline-flex items-center text-sm text-slate-600 hover:text-slate-900 transition"
+                >
+                  <span class="w-0 group-hover:w-2 h-[2px] bg-cyan-500 mr-0 group-hover:mr-2 transition-all duration-300 rounded-full"></span>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-slate-200 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <!-- Copyright -->
+        <div class="text-sm text-slate-500 text-center md:text-left">
+          <p>
+            © {currentYear} <span class="font-semibold text-slate-700">TRAN$PARENTE</span>. 
+            Todos los derechos reservados.
+          </p>
+        </div>
+
+        <!-- Trust Badges / Certifications -->
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-2 text-xs text-slate-500">
+            <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span class="font-medium">Empresa Verificada</span>
+          </div>
+
+          <div class="h-4 w-[1px] bg-slate-300"></div>
+
+          <div class="flex items-center gap-2 text-xs text-slate-500">
+            <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+            </svg>
+            <span class="font-medium"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Decorative gradient at bottom -->
+  <div class="h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500"></div>
+
+</footer>
+
+<!-- Scroll to top button -->
+<button
+  id="scrollToTop"
+  class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-slate-900 text-white
+         shadow-lg shadow-slate-900/20 opacity-0 invisible
+         hover:bg-slate-800 hover:scale-110 transition-all duration-300
+         active:scale-95 z-40"
+  aria-label="Volver arriba"
+>
+  <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+  </svg>
+</button>
+
+<script is:inline>
+  // Scroll to top functionality
+  const scrollBtn = document.getElementById("scrollToTop");
+  
+  if (scrollBtn) {
+    // Show/hide button based on scroll position
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollBtn.classList.remove("opacity-0", "invisible");
+        scrollBtn.classList.add("opacity-100", "visible");
+      } else {
+        scrollBtn.classList.add("opacity-0", "invisible");
+        scrollBtn.classList.remove("opacity-100", "visible");
+      }
+    });
+
+    // Scroll to top on click
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  // Newsletter form (placeholder - add your logic)
+  const newsletterForm = document.querySelector('input[type="email"]');
+  const subscribeBtn = document.querySelector('button');
+  
+  if (newsletterForm && subscribeBtn) {
+    subscribeBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const email = newsletterForm.value;
+      
+      if (email && email.includes("@")) {
+        // Add your newsletter subscription logic here
+        console.log("Subscribing:", email);
+        
+        // Show success message (simple example)
+        subscribeBtn.textContent = "¡Suscrito!";
+        subscribeBtn.classList.add("bg-green-600", "hover:bg-green-700");
+        subscribeBtn.classList.remove("bg-slate-900", "hover:bg-slate-800");
+        
+        setTimeout(() => {
+          subscribeBtn.textContent = "Suscribirse";
+          subscribeBtn.classList.remove("bg-green-600", "hover:bg-green-700");
+          subscribeBtn.classList.add("bg-slate-900", "hover:bg-slate-800");
+          newsletterForm.value = "";
+        }, 3000);
+      } else {
+        // Simple validation feedback
+        newsletterForm.classList.add("border-red-500", "ring-2", "ring-red-500/20");
+        setTimeout(() => {
+          newsletterForm.classList.remove("border-red-500", "ring-2", "ring-red-500/20");
+        }, 2000);
+      }
+    });
+  }
+</script>

@@ -1,0 +1,271 @@
+---
+// PowerBIVisualizacion.astro
+const features = [
+  { n: "01", title: "Visualización de datos interactiva", icon: "chart" },
+  { n: "02", title: "Conexión a múltiples fuentes de datos", icon: "plug" },
+  { n: "03", title: "Tableros y gráficos personalizados", icon: "dashboard" },
+  { n: "04", title: "Acceso desde múltiples dispositivos", icon: "devices" },
+  { n: "05", title: "Toma decisiones como un verdadero empresario", icon: "target" },
+];
+
+const icons = {
+  chart: `
+    <path d="M4 19V5" />
+    <path d="M4 19h16" />
+    <path d="M8 15V9" />
+    <path d="M12 15V7" />
+    <path d="M16 15v-5" />
+  `,
+  plug: `
+    <path d="M9 3v5" />
+    <path d="M15 3v5" />
+    <path d="M7 8h10" />
+    <path d="M12 8v6a4 4 0 0 1-4 4H7" />
+    <path d="M12 8v6a4 4 0 0 0 4 4h1" />
+  `,
+  dashboard: `
+    <path d="M4 13h7V4H4v9Z" />
+    <path d="M13 20h7V11h-7v9Z" />
+    <path d="M13 9h7V4h-7v5Z" />
+    <path d="M4 20h7v-5H4v5Z" />
+  `,
+  devices: `
+    <path d="M7 7h10a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z" />
+    <path d="M9 21h6" />
+    <path d="M3 10h2" />
+    <path d="M19 10h2" />
+  `,
+  target: `
+    <circle cx="12" cy="12" r="7" />
+    <circle cx="12" cy="12" r="3" />
+    <path d="M12 2v3" />
+    <path d="M22 12h-3" />
+    <path d="M12 22v-3" />
+    <path d="M2 12h3" />
+  `,
+};
+---
+
+<section class="relative overflow-hidden py-16 sm:py-20">
+  <!-- Fondo degradado principal -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0C245C] via-[#0B1E4C] to-[#071533]"></div>
+
+  <!-- Efectos: grid + blobs -->
+  <div class="pointer-events-none absolute inset-0">
+    <div
+      class="absolute inset-0 opacity-[0.10]"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.35) 1px, transparent 0); background-size: 34px 34px;"
+    ></div>
+    <div class="absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-cyan-400/20 blur-3xl"></div>
+    <div class="absolute -bottom-44 -right-44 h-[560px] w-[560px] rounded-full bg-indigo-400/20 blur-3xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-4">
+    <!-- Header -->
+    <header class="max-w-3xl">
+      <div class="inline-flex items-center gap-3 rounded-full bg-white/10 px-4 py-2 ring-1 ring-white/15 backdrop-blur">
+        <span class="h-2 w-2 rounded-full bg-cyan-300 animate-pulse"></span>
+        <p class="text-xs font-semibold tracking-[0.22em] text-white/85 uppercase">
+          Plataforma: <span class="text-white">Power BI</span>
+        </p>
+      </div>
+
+      <h2 class="mt-5 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.05]">
+        Herramienta de <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-200">visualización de datos</span>
+      </h2>
+
+      <p class="mt-4 text-white/70 text-base sm:text-lg">
+        Centraliza información, crea tableros y convierte datos en decisiones con una experiencia moderna y accesible.
+      </p>
+    </header>
+
+    <!-- Body -->
+    <div class="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <!-- Left: Tarjeta “Power BI” (nuevo diseño) -->
+      <aside class="lg:col-span-5">
+        <div class="h-full rounded-3xl bg-white/10 ring-1 ring-white/15 backdrop-blur-xl overflow-hidden shadow-2xl shadow-black/25">
+          <div class="relative p-6 sm:p-7">
+            <div class="absolute inset-0 opacity-70">
+              <div class="absolute -top-16 -right-16 h-56 w-56 rounded-full bg-cyan-400/25 blur-2xl"></div>
+              <div class="absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-indigo-400/20 blur-2xl"></div>
+            </div>
+
+            <div class="relative">
+              <!-- “Logo” stylized (no dependencias) -->
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-xs font-semibold tracking-[0.18em] text-white/70 uppercase">Plataforma</p>
+                  <div class="mt-2 flex items-center gap-3">
+                    <span class="grid place-items-center h-11 w-11 rounded-2xl bg-white text-[#0C245C] shadow-lg shadow-black/20">
+                      <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M4 20V6" />
+                        <path d="M8 20V10" />
+                        <path d="M12 20V4" />
+                        <path d="M16 20v-8" />
+                        <path d="M20 20v-5" />
+                      </svg>
+                    </span>
+                    <div>
+                      <p class="text-2xl font-extrabold text-white leading-none">Power BI</p>
+                      <p class="mt-1 text-sm text-white/70">Business Intelligence & dashboards</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hidden sm:flex flex-col items-end">
+                  <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80 ring-1 ring-white/15">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
+                    Interactivo
+                  </span>
+                  <span class="mt-2 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80 ring-1 ring-white/15">
+                    <span class="h-1.5 w-1.5 rounded-full bg-cyan-300"></span>
+                    Multifuente
+                  </span>
+                </div>
+              </div>
+
+              <!-- Mini “preview” abstracto -->
+              <div class="mt-7 rounded-2xl bg-gradient-to-br from-white/12 to-white/5 ring-1 ring-white/10 p-5">
+                <div class="flex items-center justify-between">
+                  <p class="text-xs font-semibold text-white/70 tracking-wide uppercase">Vista rápida</p>
+                  <p class="text-xs font-semibold text-white/70">Panel</p>
+                </div>
+
+                <div class="mt-4 grid grid-cols-6 gap-3">
+                  <div class="col-span-4 rounded-xl bg-white/10 ring-1 ring-white/10 p-3">
+                    <div class="h-2 w-16 rounded bg-white/30"></div>
+                    <div class="mt-3 h-24 rounded-lg bg-gradient-to-b from-cyan-300/25 to-indigo-300/10"></div>
+                  </div>
+                  <div class="col-span-2 rounded-xl bg-white/10 ring-1 ring-white/10 p-3">
+                    <div class="h-2 w-10 rounded bg-white/30"></div>
+                    <div class="mt-3 grid gap-2">
+                      <div class="h-3 rounded bg-white/15"></div>
+                      <div class="h-3 rounded bg-white/15"></div>
+                      <div class="h-3 rounded bg-white/15"></div>
+                      <div class="h-3 rounded bg-white/15"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 grid grid-cols-3 gap-3">
+                  <div class="rounded-xl bg-white/10 ring-1 ring-white/10 p-3">
+                    <p class="text-[11px] font-semibold text-white/70 uppercase tracking-wide">Tableros</p>
+                    <p class="mt-1 text-xl font-extrabold text-white">∞</p>
+                  </div>
+                  <div class="rounded-xl bg-white/10 ring-1 ring-white/10 p-3">
+                    <p class="text-[11px] font-semibold text-white/70 uppercase tracking-wide">Fuentes</p>
+                    <p class="mt-1 text-xl font-extrabold text-white">+</p>
+                  </div>
+                  <div class="rounded-xl bg-white/10 ring-1 ring-white/10 p-3">
+                    <p class="text-[11px] font-semibold text-white/70 uppercase tracking-wide">Acceso</p>
+                    <p class="mt-1 text-xl font-extrabold text-white">24/7</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-wrap items-center gap-2 text-xs text-white/70">
+                <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/15">
+                  <span class="h-1.5 w-1.5 rounded-full bg-cyan-200"></span>
+                  Visualización interactiva
+                </span>
+                <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/15">
+                  <span class="h-1.5 w-1.5 rounded-full bg-indigo-200"></span>
+                  Tableros personalizados
+                </span>
+                <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/15">
+                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-200"></span>
+                  Multidispositivo
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: Timeline innovador -->
+      <div class="lg:col-span-7">
+        <div class="rounded-3xl bg-white/10 ring-1 ring-white/15 backdrop-blur-xl shadow-2xl shadow-black/25 overflow-hidden">
+          <div class="p-6 sm:p-7">
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="text-lg sm:text-xl font-bold text-white">Beneficios clave</h3>
+              <span class="hidden sm:inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/80 ring-1 ring-white/15">
+                <span class="h-1.5 w-1.5 rounded-full bg-cyan-300"></span>
+                Enfoque ejecutivo
+              </span>
+            </div>
+
+            <div class="mt-6 grid gap-3">
+              {features.map((f) => (
+                <div class="group relative">
+                  <!-- conector -->
+                  <div class="pointer-events-none absolute left-[22px] top-0 h-full w-px bg-gradient-to-b from-white/0 via-white/20 to-white/0"></div>
+
+                  <div class="relative flex gap-4 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 ring-1 ring-white/12 p-4 sm:p-5
+                              transition-all duration-300 hover:translate-x-1 hover:ring-white/25 hover:bg-white/12">
+                    <!-- badge number -->
+                    <div class="relative">
+                      <div class="grid place-items-center h-11 w-11 rounded-2xl bg-white text-[#0C245C] shadow-lg shadow-black/20">
+                        <span class="text-sm font-extrabold tracking-wide">{f.n}</span>
+                      </div>
+                      <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 h-2 w-2 rounded-full bg-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+
+                    <!-- text -->
+                    <div class="min-w-0 flex-1">
+                      <p class="text-base sm:text-lg font-semibold text-white leading-tight">
+                        {f.title}
+                      </p>
+                      <p class="mt-1 text-sm text-white/65">
+                        {f.n === "01" && "Explora y filtra información en tiempo real para entender el negocio."}
+                        {f.n === "02" && "Integra fuentes distintas y consolida datos en un solo lugar."}
+                        {f.n === "03" && "Diseña dashboards a la medida y reportes con identidad propia."}
+                        {f.n === "04" && "Consulta métricas desde laptop, tablet o móvil sin fricción."}
+                        {f.n === "05" && "Convierte datos en acción con insights claros para decidir mejor."}
+                      </p>
+                    </div>
+
+                    <!-- icon -->
+                    <div class="shrink-0 self-center">
+                      <span class="grid place-items-center h-11 w-11 rounded-2xl bg-white/10 ring-1 ring-white/15 text-white/90">
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" set:html={icons[f.icon]}></svg>
+                      </span>
+                    </div>
+
+                    <!-- shine -->
+                    <div class="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div class="absolute -top-16 -right-16 h-44 w-44 rounded-full bg-cyan-300/15 blur-2xl"></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- CTA mini -->
+            <div class="mt-6 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+              <p class="text-sm text-white/70">
+                ✅ <span class="font-semibold text-white">Plataforma:</span> Power BI · <span class="font-semibold text-white">Objetivo:</span> visualización de datos para decisiones.
+              </p>
+
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Pequeña animación sutil para la sección (sin JS) */
+  @media (prefers-reduced-motion: no-preference) {
+    section {
+      animation: fadeUp .7s ease-out both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>

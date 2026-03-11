@@ -1,0 +1,229 @@
+---
+/* ===============================
+   DATA
+================================ */
+
+const highlights = [
+  { k: "Experiencia", v: "Multi-industria" },
+  { k: "Enfoque", v: "Logística & Supply Chain" },
+  { k: "Impacto", v: "Control · Crecimiento · Ahorros" },
+];
+
+const points = [
+  {
+    title: "Profesionales en logística y cadena de suministro",
+    desc: "Contamos con una profunda experiencia en múltiples industrias y empresas transportistas."
+  },
+  {
+    title: "Agregamos valor controlando flotas",
+    desc: "Impulsamos el crecimiento y generamos ahorros mediante control operativo y ejecución."
+  },
+  {
+    title: "Nuestra misión",
+    desc: "Profesionalizar el entorno logístico, optimizando y proyectando a empresas y transportistas en el futuro."
+  },
+];
+---
+
+<section id="nosotros" class="relative overflow-hidden bg-[#0C245C]">
+  <!-- Fondo: degradado + grid + glow -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#0C245C] via-[#0B1E4C] to-[#071533]"></div>
+
+  <div class="pointer-events-none absolute inset-0">
+    <div class="absolute inset-0 opacity-[0.10]"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.35) 1px, transparent 0);
+             background-size: 40px 40px;">
+    </div>
+    <div class="absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-cyan-400/18 blur-3xl"></div>
+    <div class="absolute -bottom-44 -right-44 h-[560px] w-[560px] rounded-full bg-indigo-400/18 blur-3xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent"></div>
+
+    <!-- grain -->
+    <div class="absolute inset-0 opacity-[0.10] mix-blend-overlay"
+      style="background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22160%22 height=%22160%22 filter=%22url(%23n)%22 opacity=%220.6%22/%3E%3C/svg%3E');">
+    </div>
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-4 py-16 sm:py-20">
+    <!-- Header -->
+    <div class="flex items-center gap-3 text-white/80">
+      <span class="text-2xl font-semibold tracking-[0.22em] uppercase">¿Quiénes somos?</span>
+      <span class="h-px flex-1 bg-white/20"></span>
+    </div>
+
+    <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <!-- LEFT: Mosaic + floating card -->
+      <div class="lg:col-span-5">
+        <div class="relative">
+          <!-- Mosaic -->
+          <div class="grid grid-cols-12 gap-4">
+            <figure class="col-span-12 overflow-hidden rounded-3xl ring-1 ring-white/15 bg-white/5 shadow-2xl shadow-black/25">
+              <img
+                src="/img/1.png"
+                alt="Transporte"
+                class="h-52 sm:h-64 w-full object-cover scale-[1.02] hover:scale-[1.06] transition-transform duration-700"
+                loading="lazy"
+              />
+            </figure>
+
+            <figure class="col-span-7 overflow-hidden rounded-3xl ring-1 ring-white/15 bg-white/5 shadow-xl shadow-black/20">
+              <img
+                src="/img/2.png"
+                alt="Operación"
+                class="h-40 w-full object-cover hover:scale-[1.06] transition-transform duration-700"
+                loading="lazy"
+              />
+            </figure>
+
+            <figure class="col-span-5 overflow-hidden rounded-3xl ring-1 ring-white/15 bg-white/5 shadow-xl shadow-black/20">
+              <img
+                src="/img/3.png"
+                alt="Tecnología"
+                class="h-40 w-full object-cover hover:scale-[1.06] transition-transform duration-700"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+
+          <!-- Floating glass card -->
+          <div class="mt-5 rounded-3xl bg-white/10 ring-1 ring-white/15 backdrop-blur-xl shadow-2xl shadow-black/25 overflow-hidden">
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-xs font-semibold tracking-[0.22em] text-white/70 uppercase">TRANSPARENTE</p>
+                  <h3 class="mt-2 text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                    Consultoría & logística
+                  </h3>
+                </div>
+
+                <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/85 ring-1 ring-white/15">
+                  <span class="h-1.5 w-1.5 rounded-full bg-cyan-300"></span>
+                  Equipo experto
+                </span>
+              </div>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                {highlights.map((h) => (
+                  <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/85 ring-1 ring-white/15">
+                    <span class="h-1.5 w-1.5 rounded-full bg-cyan-300"></span>
+                    {h.k}: <span class="text-white">{h.v}</span>
+                  </span>
+                ))}
+              </div>
+
+              <div class="mt-5 h-px w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0"></div>
+
+              <p class="mt-4 text-sm text-white/70 leading-relaxed">
+                Control, ejecución y visión estratégica para resultados medibles en operación logística.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="lg:col-span-7">
+        <!-- Title block -->
+        <div class="rounded-3xl bg-white/10 ring-1 ring-white/15 backdrop-blur-xl shadow-2xl shadow-black/25 overflow-hidden">
+          <div class="p-7 sm:p-10">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5">
+              <div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.05]">
+                  Ser <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-200">Transparente</span>
+                </h2>
+                <p class="mt-3 text-white/70 text-sm sm:text-base">
+                  Diseñamos e implementamos prácticas para profesionalizar el entorno logístico.
+                </p>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span class="badge">Crecimiento</span>
+                <span class="badge">Ahorros</span>
+                <span class="badge">Control</span>
+              </div>
+            </div>
+
+            <!-- Main text -->
+            <p class="mt-8 text-base sm:text-lg leading-relaxed text-white/85">
+              Somos <span class="font-extrabold text-white">profesionales</span> en logística y cadena de suministro con una
+              profunda experiencia en múltiples industrias y empresas transportistas, lo cual nos permite agregar valor a
+              nuestros clientes, controlando sus flotas, provocando crecimiento y generando ahorros.
+            </p>
+
+            <!-- Mission panel -->
+            <div class="mt-6 rounded-3xl bg-gradient-to-br from-white/12 to-white/5 ring-1 ring-white/12 p-6">
+              <p class="text-sm sm:text-base text-white/80">
+                Nuestra misión es <span class="font-extrabold text-cyan-200">profesionalizar</span> el entorno logístico,
+                optimizando y proyectando a empresas y transportistas en el futuro.
+              </p>
+            </div>
+
+            <!-- Points as premium cards -->
+            <div class="mt-8 grid gap-4">
+              {points.map((p, i) => (
+                <div class="group rounded-3xl bg-white/10 ring-1 ring-white/15 p-6 hover:bg-white/12 hover:ring-white/25 transition">
+                  <div class="flex items-start gap-4">
+                    <div class="shrink-0 grid place-items-center h-11 w-11 rounded-2xl bg-white text-[#0C245C] font-extrabold shadow-lg shadow-black/20">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-white font-bold text-base">{p.title}</p>
+                      <p class="mt-1 text-sm text-white/70 leading-relaxed">{p.desc}</p>
+
+                      <div class="mt-4 h-px w-full bg-gradient-to-r from-white/0 via-white/20 to-white/0"></div>
+
+                      <p class="mt-3 text-xs text-white/65">
+                        Resultado: <span class="font-semibold text-white/85">mejor operación, mejores decisiones</span>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+              <p class="text-sm text-white/70">¿Listo para profesionalizar tu logística? 🚚</p>
+
+              <a
+                href="mailto:diego@consultoriatransparente.com"
+                class="inline-flex items-center justify-center gap-2 rounded-2xl bg-white text-[#0C245C] px-5 py-3 text-sm font-extrabold
+                       shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/25 transition-shadow"
+              >
+                Contáctanos
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14" />
+                  <path d="m13 5 7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:.35rem .7rem;
+      border-radius:9999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.15);
+      color:rgba(255,255,255,.85);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.06em;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      section { animation: aboutIn .7s ease-out both; }
+      @keyframes aboutIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</section>

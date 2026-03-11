@@ -1,0 +1,20 @@
+{
+  "name": "add",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.5.5",
+    "astro": "^5.18.1",
+    "nodemailer": "^8.0.1",
+    "resend": "^6.9.3"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^7.0.11"
+  }
+}

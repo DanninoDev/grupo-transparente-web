@@ -1,0 +1,297 @@
+---
+const heroKicker = "";
+const pill = "";
+const title = "TE PRESENTAMOS A TU NUEVA EMPRESA DE TRANSPORTE.";
+const desc ="Nuestro modelo estándar de operación, conocimiento y control de la empresa te llevarán a la profesionalización y el crecimiento.";
+---
+
+<section class="relative w-full overflow-hidden bg-[#06163a]">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#06163a] via-[#0b2a66] to-[#1e56b8]"></div>
+
+  <!-- Subtle grid overlay -->
+  <div
+    class="absolute inset-0 opacity-[0.16] mix-blend-soft-light"
+    style="
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(circle at 30% 30%, black 0%, transparent 60%);
+      -webkit-mask-image: radial-gradient(circle at 30% 30%, black 0%, transparent 60%);
+    "
+  ></div>
+
+  <!-- Blobs -->
+  <div class="absolute -top-24 -left-24 sm:-top-32 sm:-left-32 w-[320px] h-[320px] sm:w-[520px] sm:h-[520px] lg:w-[640px] lg:h-[640px] bg-cyan-400/16 blur-3xl rounded-full"></div>
+  <div class="absolute -bottom-24 -right-24 sm:-bottom-32 sm:-right-32 w-[360px] h-[360px] sm:w-[560px] sm:h-[560px] lg:w-[760px] lg:h-[760px] bg-blue-200/14 blur-3xl rounded-full"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[520px] sm:h-[520px] lg:w-[780px] lg:h-[780px] bg-white/5 blur-3xl rounded-full"></div>
+
+  <div class="relative min-h-screen">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <div class="min-h-screen flex items-center py-16 sm:py-20 lg:py-24">
+        <!-- CONTENT -->
+        <div class="w-full lg:max-w-[56%] xl:max-w-[52%] text-white lg:pr-10 xl:pr-14 2xl:pr-24">
+          {heroKicker && (
+            <div
+              data-hero="kicker"
+              class="text-[11px] sm:text-[13px] tracking-[0.24em] sm:tracking-[0.28em] uppercase font-extrabold text-white/90 opacity-0 translate-y-2"
+            >
+              <span class="bg-gradient-to-r from-cyan-200 via-white to-cyan-200 bg-clip-text text-transparent">
+                {heroKicker}
+              </span>
+            </div>
+          )}
+
+          {pill && (
+            <div
+              data-hero="pill"
+              class="inline-flex max-w-full items-start sm:items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 sm:px-5 py-2.5
+                     text-xs sm:text-sm backdrop-blur opacity-0 translate-y-2"
+            >
+              <span class="mt-[4px] sm:mt-0 w-2 h-2 rounded-full bg-cyan-200 shrink-0"></span>
+              <span class="text-white/90 tracking-wide leading-relaxed">{pill}</span>
+            </div>
+          )}
+
+          <h1 class="mt-2 sm:mt-3 text-[2.4rem] leading-[1.05] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-[82px] font-semibold tracking-tight">
+            <span
+              data-hero="title"
+              class="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent inline-block opacity-0 translate-y-2"
+            >
+              {title}
+            </span>
+          </h1>
+
+          <p
+            data-hero="desc"
+            class="mt-5 sm:mt-7 text-base sm:text-lg md:text-xl xl:text-[22px] text-white/80 max-w-2xl leading-relaxed opacity-0 translate-y-2"
+          >
+            {desc}
+          </p>
+
+          <div data-hero="chips" class="mt-6 sm:mt-7 flex flex-wrap gap-2.5 opacity-0 translate-y-2">
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-[11px] sm:text-xs text-white/85 backdrop-blur">
+              <span class="w-2 h-2 rounded-full bg-emerald-300/80"></span>
+              KPIs & tableros
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-[11px] sm:text-xs text-white/85 backdrop-blur">
+              <span class="w-2 h-2 rounded-full bg-amber-300/80"></span>
+              Control operativo
+            </span>
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-[11px] sm:text-xs text-white/85 backdrop-blur">
+              <span class="w-2 h-2 rounded-full bg-cyan-200/80"></span>
+              Inteligencia logística
+            </span>
+          </div>
+
+          <div data-hero="cta" class="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 opacity-0 translate-y-2">
+            <a
+              href="https://wa.me/525524685599?text=Hola%20%F0%9F%91%8B%20Vengo%20desde%20tu%20sitio%20web.%20Me%20interesa%20agendar%20una%20reuni%C3%B3n%20para%20conocer%20c%C3%B3mo%20pueden%20ayudarme%20con%20transporte%20y%20log%C3%ADstica.%20%C2%BFMe%20compartes%20disponibilidad%20esta%20semana%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center justify-center gap-2 rounded-2xl bg-white text-slate-950
+                     px-6 sm:px-8 py-4 text-sm sm:text-base font-semibold shadow-[0_26px_70px_rgba(0,0,0,0.38)]
+                     transition hover:-translate-y-[2px] active:scale-[0.99]"
+            >
+              Agendar reunión
+              <span class="text-lg opacity-70 transition-transform group-hover:translate-x-1">›</span>
+            </a>
+
+            <a
+              href="#servicios"
+              class="group inline-flex items-center justify-center gap-2 rounded-2xl
+                     border border-white/25 bg-white/10 px-6 sm:px-8 py-4 text-sm sm:text-base font-semibold text-white
+                     backdrop-blur transition hover:bg-white/15 active:scale-[0.99]"
+            >
+              Ver servicios
+              <span class="text-lg opacity-70 transition-transform group-hover:translate-x-1">›</span>
+            </a>
+          </div>
+
+          <!-- MOBILE / TABLET IMAGE -->
+          <div
+            id="heroMediaMobile"
+            class="lg:hidden mt-10 sm:mt-12 relative mx-auto w-full max-w-[820px] pointer-events-none select-none"
+          >
+            <img
+              id="heroTruckMobile"
+              src="/img/hero-truck.png"
+              alt="Tráiler"
+              class="w-full h-auto object-contain scale-x-[-1] opacity-0 rounded-[28px]"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESKTOP IMAGE -->
+    <div
+      id="heroMedia"
+      class="hidden lg:block pointer-events-none select-none absolute right-0 top-1/2 -translate-y-1/2
+             pr-4 xl:pr-6 2xl:pr-10"
+      style="width: clamp(560px, 46vw, 1020px);"
+    >
+      <img
+        id="heroTruck"
+        src="/img/hero-truck.png"
+        alt="Tráiler"
+        class="w-full h-auto max-w-none object-contain scale-x-[-1] opacity-0 rounded-[36px]"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- DESKTOP STATS -->
+    <div
+      data-hero="stats"
+      class="hidden lg:block absolute bottom-8 right-6 xl:bottom-10 xl:right-10 2xl:bottom-12 2xl:right-12
+             w-[360px] xl:w-[440px] 2xl:w-[500px]
+             rounded-3xl border border-white/12 bg-white/10 backdrop-blur-xl
+             shadow-[0_22px_70px_rgba(0,0,0,0.28)]
+             p-5 xl:p-6 text-white
+             opacity-0 translate-y-2"
+    >
+      <div class="flex items-center justify-between gap-4">
+        <p class="text-sm font-semibold text-white/90">Impacto a nuestros clientes</p>
+        <span class="text-[11px] xl:text-xs text-white/60 text-right">primeros 60–90 días</span>
+      </div>
+
+      <div class="mt-4 grid grid-cols-3 gap-2.5 xl:gap-3">
+        <div class="rounded-2xl bg-white/10 border border-white/10 p-3">
+          <p class="text-lg xl:text-xl font-semibold">+30%</p>
+          <p class="mt-1 text-[10px] xl:text-[11px] text-white/65">Mayor rentabilidad</p>
+        </div>
+        <div class="rounded-2xl bg-white/10 border border-white/10 p-3">
+          <p class="text-lg xl:text-xl font-semibold">Control de la empresa con Costo Kilómetro</p>
+        </div>
+        <div class="rounded-2xl bg-white/10 border border-white/10 p-3">
+          <p class="text-lg xl:text-xl font-semibold">Datos en tiempo real para tomar decisiones</p>
+        </div>
+      </div>
+
+      <p class="mt-4 text-[11px] xl:text-xs text-white/55 leading-relaxed">
+        Ajustamos el plan a tu operación: rutas, flota, turnos, SLA, costos y control de ejecución.
+      </p>
+    </div>
+
+    <!-- MOBILE STATS -->
+    <div class="lg:hidden px-5 sm:px-8 pb-10 sm:pb-14">
+      <div
+        data-hero="stats"
+        class="w-full max-w-xl mx-auto rounded-3xl border border-white/12 bg-white/10 backdrop-blur-xl
+               shadow-[0_22px_70px_rgba(0,0,0,0.28)] p-5 text-white opacity-0 translate-y-2"
+      >
+        <div class="flex items-center justify-between gap-4">
+          <p class="text-sm font-semibold text-white/90">Impacto a nuestros clientes</p>
+          <span class="text-[11px] text-white/60 text-right">primeros 60–90 días</span>
+        </div>
+
+        <div class="mt-4 grid grid-cols-3 gap-2.5 sm:gap-3">
+          <div class="rounded-2xl bg-white/10 border border-white/10 p-3">
+            <p class="text-lg sm:text-xl font-semibold">+30%</p>
+            <p class="mt-1 text-[10px] sm:text-[11px] text-white/65">Mayor rentabilidad</p>
+          </div>
+          <div class="rounded-2xl bg-white/10 border border-white/10 p-3">
+            <p class="text-lg sm:text-xl font-semibold">Control de la empresa con Costo Kilómetro</p>
+          </div>
+          <div class="rounded-2xl bg-white/10 border border-white/10 p-3">
+            <p class="text-lg sm:text-xl font-semibold">Datos en tiempo real para tomar decisiones</p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-[11px] sm:text-xs text-white/55 leading-relaxed">
+          Ajustamos el plan a tu operación: rutas, flota, turnos, SLA, costos y control de ejecución.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const q = (sel) => document.querySelector(sel);
+
+    const kickerEl = q('[data-hero="kicker"]');
+    const pillEl = q('[data-hero="pill"]');
+    const titleEl = q('[data-hero="title"]');
+    const descEl = q('[data-hero="desc"]');
+    const chipsEl = q('[data-hero="chips"]');
+    const ctaEl = q('[data-hero="cta"]');
+    const statsEls = Array.from(document.querySelectorAll('[data-hero="stats"]'));
+    const truck = q("#heroTruck");
+    const truckMobile = q("#heroTruckMobile");
+
+    const showNow = (el) => {
+      if (!el) return;
+      el.classList.remove("opacity-0", "translate-y-2");
+      el.style.opacity = "1";
+      el.style.transform = "none";
+      el.style.filter = "none";
+    };
+
+    if (reduce) {
+      [kickerEl, pillEl, titleEl, descEl, chipsEl, ctaEl].forEach(showNow);
+      statsEls.forEach(showNow);
+      if (truck) truck.style.opacity = "1";
+      if (truckMobile) truckMobile.style.opacity = "1";
+    } else {
+      const steps = [
+        { el: kickerEl, delay: 20 },
+        { el: pillEl, delay: 70 },
+        { el: titleEl, delay: 140 },
+        { el: descEl, delay: 210 },
+        { el: chipsEl, delay: 260 },
+        { el: ctaEl, delay: 320 },
+      ];
+
+      for (const s of steps) {
+        if (!s.el) continue;
+        s.el.animate(
+          [
+            { opacity: 0, transform: "translateY(10px)", filter: "blur(3px)" },
+            { opacity: 1, transform: "translateY(0px)", filter: "blur(0px)" },
+          ],
+          {
+            duration: 760,
+            easing: "cubic-bezier(.22,1,.36,1)",
+            delay: s.delay,
+            fill: "forwards",
+          }
+        );
+        s.el.classList.remove("opacity-0", "translate-y-2");
+      }
+
+      statsEls.forEach((el, idx) => {
+        el.animate(
+          [
+            { opacity: 0, transform: "translateY(10px)", filter: "blur(3px)" },
+            { opacity: 1, transform: "translateY(0px)", filter: "blur(0px)" },
+          ],
+          {
+            duration: 760,
+            easing: "cubic-bezier(.22,1,.36,1)",
+            delay: 420 + idx * 40,
+            fill: "forwards",
+          }
+        );
+        el.classList.remove("opacity-0", "translate-y-2");
+      });
+
+      [truck, truckMobile].forEach((item) => {
+        if (!item) return;
+        item.animate(
+          [
+            { opacity: 0, transform: "translate3d(-120px, 10px, 0) scale(0.98)", filter: "blur(6px)" },
+            { opacity: 1, transform: "translate3d(0px, 0px, 0) scale(1)", filter: "blur(0px)" },
+          ],
+          {
+            duration: 1100,
+            easing: "cubic-bezier(.22,1,.36,1)",
+            delay: 220,
+            fill: "forwards",
+          }
+        );
+      });
+    }
+  </script>
+</section>

@@ -1,0 +1,144 @@
+---
+const sectionTitle = "Reseñas de empresas";
+const sectionDesc = "Clientes reales, resultados reales. ⭐";
+
+const reviews = [
+  {
+    company: "Insituto UCAP",
+    source: "Customer Reviews",
+    rating: 5,
+    quote:
+      "Implementación súper clara. KPI’s, rutinas y control operativo en semanas. Hoy tomamos decisiones con datos.",
+    logo: "/img/logos/ucaplogo.jpg",
+  },
+  {
+    company: "Pepsico",
+    source: "Verified Review",
+    rating: 5,
+    quote:
+      "Pasamos de improvisación a disciplina operativa. La estructura de seguimiento semanal fue clave.",
+    logo: "/img/logos/Pepsicologo.svg",
+  },
+  {
+    company: "Durr",
+    source: "Customer Reviews",
+    rating: 4,
+    quote:
+      "Excelente acompañamiento. Nos dieron visibilidad y un tablero ejecutivo que por fin se usa.",
+    logo: "/img/logos/durrlogo.png",
+  },
+  {
+    company: "Tecnolalimentos",
+    source: "Verified Review",
+    rating: 5,
+    quote:
+      "Muy pro. Ordenaron el flujo operativo y los reportes. Se siente un servicio premium y directo.",
+    logo: "/img/logos/tecnoalimentoslogo.png",
+  },
+  {
+    company: "Pelt",
+    source: "Customer Reviews",
+    rating: 5,
+    quote:
+      "El antes y después fue evidente: menos incidencias, mejor coordinación y objetivos medibles.",
+    logo: "/img/logos/peltmx_logo.jpg",
+  },
+];
+
+const clamp = (n) => Math.max(0, Math.min(5, n));
+const starsArr = (n) => Array.from({ length: 5 }, (_, i) => i < clamp(n));
+
+// duplicamos para loop infinito perfecto
+const loopReviews = [...reviews, ...reviews];
+---
+
+<section class="bg-[#F8F9FB] overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 py-20">
+
+    <!-- HEADER -->
+    <div class="mb-14 text-center">
+      <h2 class="text-5xl md:text-6xl xl:text-6xl font-bold tracking-tight text-[#0C245C]">
+        {sectionTitle}
+      </h2>
+      <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">
+        {sectionDesc}
+      </p>
+    </div>
+
+    <!-- CARRUSEL -->
+    <div class="relative">
+      <div class="flex gap-6 animate-marquee w-max">
+
+        {loopReviews.map((r) => (
+          <article
+            class="shrink-0 w-[400px] md:w-[420px]
+                   rounded-3xl bg-white border border-slate-200/70
+                   shadow-[0_15px_40px_rgba(2,6,23,0.08)]
+                   hover:shadow-[0_20px_55px_rgba(2,6,23,0.12)]
+                   transition p-7"
+          >
+            <!-- Header -->
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="h-14 w-14 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center">
+                  <img src={r.logo} class="h-8 w-8 object-contain" loading="lazy" alt={r.company} />
+                </div>
+                <div>
+                  <p class="font-semibold text-slate-900 text-[17px] leading-tight">{r.company}</p>
+                  <p class="text-sm text-slate-500">{r.source}</p>
+                </div>
+              </div>
+
+              <!-- Estrellas -->
+              <div class="flex items-center gap-0.5">
+                {starsArr(r.rating).map((filled) => (
+                  <svg
+                    class={`h-[22px] w-[22px] ${filled ? "text-amber-400" : "text-slate-200"}`}
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 17.27l-5.18 2.73 1-5.82L3.64 9.24l5.84-.85L12 3l2.52 5.39 5.84.85-4.22 3.94 1 5.82z" />
+                  </svg>
+                ))}
+              </div>
+            </div>
+
+            <!-- Texto -->
+            <p class="mt-5 text-[16px] leading-relaxed text-slate-700">
+              <span class="text-slate-400">“</span>
+              {r.quote}
+              <span class="text-slate-400">”</span>
+            </p>
+
+            <!-- Footer -->
+            <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+              <span class="text-sm text-slate-500">Reseña verificada</span>
+              <span class="flex items-center gap-2 text-sm text-slate-500">
+                <span class="h-2 w-2 rounded-full bg-emerald-500/70"></span>
+                Confianza
+              </span>
+            </div>
+          </article>
+        ))}
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Animación infinita -->
+  <style>
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .animate-marquee {
+      animation: marquee 35s linear infinite;
+    }
+
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</section>

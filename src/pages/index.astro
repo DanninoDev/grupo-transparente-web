@@ -1,0 +1,75 @@
+---
+import Base from "../layouts/Base.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import TrustedBy from "../components/TrustedBy.astro";
+import ModulosBasicosTransporte from "../components/ModulosBasicosTransporte.astro";
+import Footer from "../components/Footer.astro";
+import Contact from "../components/contact.astro";
+import Resena from "../components/resena.astro";
+import ServiciosTransporte from "../components/ServiciosTransporte-v3.astro";
+import Filosofy from "../components/filosofy.astro";
+---
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<Base title="">
+  <Navbar />
+  <Hero />
+  <br /><br />
+  <Filosofy />
+  <br><br>
+  <ModulosBasicosTransporte />
+  <br /><br />
+  <ServiciosTransporte />
+  <br /><br />
+  <TrustedBy />
+  <br /><br />
+  <Resena />
+  <br /><br />
+  <Contact />
+  <br /><br />
+  <Footer />
+
+  <!-- ✅ Botón flotante WhatsApp (fijo abajo derecha) -->
+  <a
+    href="https://wa.me/524272774026?text=Hola%20👋%20Vengo%20desde%20la%20web%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Abrir WhatsApp"
+    class="fixed z-[9999] bottom-5 right-5 md:bottom-7 md:right-7 group"
+  >
+    <div
+      class="flex items-center gap-3 rounded-full bg-emerald-500 text-white
+             px-4 py-3 shadow-[0_18px_50px_rgba(16,185,129,.35)]
+             hover:bg-emerald-600 hover:shadow-[0_22px_60px_rgba(16,185,129,.45)]
+             active:scale-[0.98] transition"
+    >
+      <!-- Icono WhatsApp (SVG) -->
+      <svg
+        class="w-6 h-6"
+        viewBox="0 0 32 32"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M19.11 17.53c-.27-.13-1.6-.79-1.85-.88-.25-.09-.43-.13-.61.13-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.13-1.15-.42-2.19-1.35-.81-.72-1.35-1.61-1.51-1.88-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.48-.07-.13-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.46-.16 0-.34-.02-.52-.02-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.83.13.18 1.92 2.93 4.65 4.11.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.31z"
+        />
+        <path
+          d="M26.67 15.33c0 5.97-4.85 10.82-10.82 10.82-1.9 0-3.75-.5-5.39-1.46L5.33 26.67l2.07-4.94c-.98-1.7-1.5-3.62-1.5-5.59C5.9 9.18 10.75 4.33 16.72 4.33c5.97 0 10.82 4.85 10.82 10.82zm-10.82-9.1c-5.02 0-9.1 4.08-9.1 9.1 0 1.83.55 3.61 1.6 5.14l.18.27-1.22 2.9 3-1.2.26.16c1.48.95 3.2 1.45 4.99 1.45 5.02 0 9.1-4.08 9.1-9.1 0-5.02-4.08-9.1-9.1-9.1z"
+        />
+      </svg>
+
+      <div class="hidden sm:flex flex-col leading-tight">
+        <span class="text-sm font-semibold">WhatsApp</span>
+        <span class="text-xs opacity-90">Respuesta rápida</span>
+      </div>
+
+      <!-- “Ping” sutil -->
+      <span class="relative flex h-3 w-3">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/60 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+      </span>
+    </div>
+  </a>
+</Base>

@@ -1,0 +1,192 @@
+---
+import Icon from "./Icon.astro";
+
+type IconKey = "user" | "linkedin" | "mail" | "instagram" | "facebook";
+
+const menu = [
+  { label: "SOLUCIONES", href: "/" },
+  { label: "NOSOTROS", href: "nosotros/" },
+] as const;
+
+const socials = [
+  { name: "linkedin", href: "https://www.linkedin.com/company/grupotransparente01/", label: "LinkedIn" },
+  { name: "mail", href: "diego@consultoriatransparente.com", label: "Email" },
+  { name: "instagram", href: "https://www.instagram.com/grupo.transparente/", label: "Instagram" },
+  { name: "facebook", href: "https://www.facebook.com/profile.php?id=100085576855283", label: "Facebook" },
+] as const satisfies ReadonlyArray<{ name: IconKey; href: string; label: string }>;
+---
+
+
+<header class="sticky top-0 z-50">
+  <!-- Barra con blur / glass -->
+  <div class="bg-white/80 backdrop-blur-xl border-b border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="h-16 flex items-center justify-between gap-4">
+
+        <!-- Logo + Brand -->
+        <a href="/" class="group flex items-center gap-3 select-none">
+          <img src="/img/logo.png" alt="Logo" class="h-14 w-auto" />
+          <div class="hidden sm:block leading-tight">
+            <p class="text-[13px] font-semibold text-slate-900 group-hover:text-slate-950 transition">
+              TRANSPARENTE
+            </p>
+            <p class="text-[11px] text-slate-500">
+              Consultoría & logística
+            </p>
+          </div>
+        </a>
+
+        <!-- Menu desktop -->
+        <nav class="hidden md:flex items-center gap-9">
+          {menu.map((m) => (
+            <a
+              href={m.href}
+              class="group relative text-[12px] tracking-[0.16em] font-semibold text-slate-700 hover:text-slate-950 transition"
+            >
+              <span class="relative z-10">{m.label}</span>
+
+              <!-- underline animado -->
+              <span class="absolute -bottom-2 left-0 h-[2px] w-full origin-left scale-x-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 transition-transform duration-300 group-hover:scale-x-100"></span>
+
+              <!-- glow sutil -->
+              <span class="absolute -inset-2 rounded-xl bg-slate-900/0 group-hover:bg-slate-900/5 transition"></span>
+            </a>
+          ))}
+        </nav>
+
+        <!-- Right actions -->
+        <div class="flex items-center gap-2">
+
+          <!-- Social (desktop) -->
+          <div class="hidden lg:flex items-center gap-2">
+            {socials.map((i) => (
+              <a
+                href={i.href}
+                aria-label={i.label}
+                class="group inline-flex items-center justify-center w-9 h-9 rounded-full border border-slate-200 bg-white text-slate-700
+                       hover:border-slate-300 hover:text-slate-950 hover:shadow-sm transition
+                       active:scale-95"
+              >
+                <span class="transition-transform duration-200 group-hover:scale-110">
+                  <Icon name={i.name} class="w-4 h-4" />
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <!-- CTA -->
+          <a
+            href="https://wa.me/525524685599?text=Hola%20%F0%9F%91%8B%20Vengo%20desde%20tu%20sitio%20web.%20Me%20interesa%20agendar%20una%20reuni%C3%B3n%20para%20conocer%20c%C3%B3mo%20pueden%20ayudarme%20con%20transporte%20y%20log%C3%ADstica.%20%C2%BFMe%20compartes%20disponibilidad%20esta%20semana%3F"
+            target="_blank" class="hidden sm:inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold
+                   text-white bg-slate-900 hover:bg-slate-800 shadow-sm transition
+                   active:scale-[0.98]"
+          >
+            Agendar cita
+            <span class="text-base leading-none opacity-90">›</span>
+          </a>
+
+          <!-- Mobile button -->
+          <button
+            id="navBtn"
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl
+                   border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 transition active:scale-95"
+            aria-label="Abrir menú"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div
+      id="mobileMenu"
+      class="md:hidden hidden border-t border-slate-200/70 bg-white/95 backdrop-blur-xl"
+    >
+      <div class="max-w-7xl mx-auto px-5 py-4">
+        <div class="flex flex-col gap-2">
+          {menu.map((m) => (
+            <a
+              href={m.href}
+              class="rounded-xl px-3 py-3 text-sm font-semibold tracking-wide text-slate-800
+                     hover:bg-slate-50 transition active:scale-[0.99]"
+            >
+              {m.label}
+            </a>
+          ))}
+        </div>
+
+        <div class="mt-4 flex items-center gap-2">
+          {socials.map((i) => (
+            <a
+              href={i.href}
+              aria-label={i.label}
+              class="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200 bg-white
+                     text-slate-700 hover:bg-slate-50 transition active:scale-95"
+            >
+              <Icon name={i.name} class="w-4 h-4" />
+            </a>
+          ))}
+
+          <a
+            href="#agenda"
+            class="ml-auto inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold
+                   text-white bg-slate-900 hover:bg-slate-800 transition active:scale-[0.98]"
+          >
+            Agendar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script (toggle + animación) -->
+  <script is:inline>
+    const btn = document.getElementById("navBtn");
+    const menu = document.getElementById("mobileMenu");
+
+    if (btn && menu) {
+      const openMenu = () => {
+        btn.setAttribute("aria-expanded", "true");
+        menu.classList.remove("hidden");
+        // animación (simple + pro)
+        menu.animate(
+          [
+            { opacity: 0, transform: "translateY(-8px)" },
+            { opacity: 1, transform: "translateY(0px)" }
+          ],
+          { duration: 180, easing: "ease-out" }
+        );
+      };
+
+      const closeMenu = () => {
+        btn.setAttribute("aria-expanded", "false");
+        const anim = menu.animate(
+          [
+            { opacity: 1, transform: "translateY(0px)" },
+            { opacity: 0, transform: "translateY(-8px)" }
+          ],
+          { duration: 140, easing: "ease-in" }
+        );
+        anim.onfinish = () => menu.classList.add("hidden");
+      };
+
+      btn.addEventListener("click", () => {
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        expanded ? closeMenu() : openMenu();
+      });
+
+      // Cierra al hacer click en un link
+      menu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          if (btn.getAttribute("aria-expanded") === "true") closeMenu();
+        });
+      });
+    }
+  </script>
+</header>

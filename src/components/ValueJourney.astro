@@ -1,0 +1,183 @@
+---
+const title = "Cinco etapas. Un camino claro.";
+
+const steps = [
+  { n: "01", title: "CONÓCETE", desc: "Un diagnóstico profundo para conocer dónde están tu equipo y tu empresa.", icon: "doc" },
+  { n: "02", title: "ESTRATEGIAS", desc: "Aplica soluciones de gran impacto y cambios estratégicos y operativos", icon: "star" },
+  { n: "03", title: "CONTROL", desc: "Mantén los grandes resultados, ajusta los deficientes y consolida con cultura", icon: "control" },
+  { n: "04", title: "CRECIMIENTO", desc: "Rompe tus límites, llega más lejos, te respaldamos", icon: "growth" },
+  { n: "05", title: "NETWORKING", desc: "Potencia tu portafolio de clientes, aplica herramientas de servicio al cliente, sé tú mismo", icon: "network" },
+];
+---
+
+<section class="relative overflow-hidden">
+  <!-- Banda azul -->
+  <div class="relative">
+    <div class="h-[190px] md:h-[220px] bg-gradient-to-br from-[#04122b] via-[#0a2454] to-[#1a4399]"></div>
+
+    <!-- puntitos -->
+    <div
+      class="absolute inset-0 opacity-[0.14]"
+      style="
+        background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.28) 1px, transparent 0);
+        background-size: 22px 22px;
+      "
+    ></div>
+
+    <!-- glow -->
+    <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[240px] rounded-full blur-3xl bg-cyan-400/12"></div>
+    <div class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-black/15 to-transparent"></div>
+  </div>
+
+  <!-- Panel -->
+  <div class="relative -mt-16 md:-mt-20">
+    <div class="max-w-7xl mx-auto px-5 pb-12 md:pb-14">
+      <div
+        id="methodPanel"
+        class="rounded-[26px] bg-white shadow-[0_30px_90px_rgba(2,6,23,0.12)] border border-slate-200/70"
+      >
+        <div class="px-6 md:px-10 py-8 md:py-10">
+          <!-- Header -->
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div id="metaHeader" class="will-reveal">
+              <p class="text-xs tracking-[0.30em] uppercase text-slate-500 font-semibold">Metodología</p>
+              <h3 class="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-slate-950">
+                {title}
+              </h3>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <!-- Camión (Opción C) -->
+        
+              <a
+                href="#agenda"
+                id="ctaBtn"
+                class="will-reveal inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-semibold
+                       bg-slate-950 text-white shadow-sm transition hover:bg-slate-900 active:scale-[0.99]"
+              >
+                Agendar reunión
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-6 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
+          <!-- Cards -->
+          <div id="cardsGrid" class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {steps.map((s) => (
+              <article
+                class="will-reveal group rounded-3xl border border-slate-200 bg-white p-5
+                       shadow-[0_18px_55px_rgba(2,6,23,0.06)]
+                       transition hover:-translate-y-[2px] hover:shadow-[0_26px_70px_rgba(2,6,23,0.10)]"
+                data-card
+              >
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-xs tracking-[0.22em] uppercase text-slate-500 font-semibold">{s.n}</p>
+                    <h4 class="mt-2 text-sm font-extrabold tracking-wide text-slate-950">{s.title}</h4>
+                  </div>
+
+                  <div class="rounded-2xl bg-slate-50 border border-slate-200 p-3 text-slate-900">
+                    {s.icon === "doc" && (
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                        <path d="M8 13h8M8 17h8M8 9h3"/>
+                      </svg>
+                    )}
+                    {s.icon === "star" && (
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 2l3 7 7 .5-5.5 4.7 1.8 7.3L12 18l-6.3 3.5 1.8-7.3L2 9.5 9 9z"/>
+                      </svg>
+                    )}
+                    {s.icon === "control" && (
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M4 6h16M4 12h16M4 18h16"/>
+                        <path d="M7 6v12"/>
+                        <path d="M17 6v12"/>
+                      </svg>
+                    )}
+                    {s.icon === "growth" && (
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M3 3v18h18"/>
+                        <path d="M7 14l4-4 4 3 5-6"/>
+                      </svg>
+                    )}
+                    {s.icon === "network" && (
+                      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M8 12l2 2c1 1 3 1 4 0l4-4"/>
+                        <path d="M2 12l6-6 4 4-6 6z"/>
+                        <path d="M22 12l-6-6-4 4 6 6z"/>
+                      </svg>
+                    )}
+                  </div>
+                </div>
+
+                <p class="mt-4 text-sm text-slate-600 leading-relaxed">{s.desc}</p>
+              </article>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Animación sincronizada (cascada) -->
+  <script is:inline>
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Animación base (premium: fade + slide suave)
+    const animateIn = (el, delay = 0) => {
+      if (!el) return;
+      el.animate(
+        [
+          { opacity: 0, transform: "translateY(12px)" },
+          { opacity: 1, transform: "translateY(0)" }
+        ],
+        { duration: 520, easing: "cubic-bezier(.2,.8,.2,1)", delay }
+      );
+    };
+
+    const boot = () => {
+      if (reduce || !("IntersectionObserver" in window)) return;
+
+      const panel = document.getElementById("methodPanel");
+      const header = document.getElementById("metaHeader");
+      const truck  = document.getElementById("truckAccent");
+      const cta    = document.getElementById("ctaBtn");
+      const cards  = Array.from(document.querySelectorAll("[data-card]"));
+
+      // Cascada: header -> truck -> cta -> cards(01..05)
+      const runCascade = () => {
+        animateIn(header, 0);
+        animateIn(truck, 90);
+        animateIn(cta, 140);
+
+        // Cards en secuencia
+        cards.forEach((card, i) => {
+          animateIn(card, 220 + i * 80);
+        });
+      };
+
+      // Solo dispara una vez cuando el panel entra en viewport
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            runCascade();
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.22 });
+
+      if (panel) io.observe(panel);
+      else runCascade();
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", boot, { once: true });
+    } else {
+      boot();
+    }
+  </script>
+</section>
