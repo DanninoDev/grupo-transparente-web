@@ -6,13 +6,34 @@ const sectionPill = "NUESTROS SERVICIOS";
 const sectionDesc =
   "Nuestros servicios son las soluciones integrales para la profesionalización del transporte y la logística";
 
+  // Datos de servicios (título, descripción, chips, imagen, etc.)
 const services = [
+  // Socios del Transporte Servicio 1°
   {
     title: "Socios del Transporte",
     badge: "Transparente",
-    desc: "Un gran programa basado en volver a los básicos e impulso estratégico, creando soluciones a la medida con un objetivo claro: Control, Crecimiento, Ingresos y Servicio.",
+    desc: "Conexión de transporte para atender las cargas de nuestros clientes, con socios confiables pero con un servicio profesional — nuestra etiqueta Transparente.",
     chips: [
-      "Mapeo total de la cadena de suministro",
+  "Recursos: Auto, 1 tonelada, 3.5 toneladas, Rabón, Torton, Tráiler de 40, 48 y 53 pies",
+  "Tipos: Caja seca y plataforma, todas las configuraciones",
+  "Cobertura: Nacional en todas las configuraciones con protocolos de seguridad establecidos",
+  "Proyectos: Hechos a la medida (evaluación de factibilidad, capacidad y recomendaciones)",
+  ],
+  
+    image:
+      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1600&h=900&fit=crop",
+    delay: "120ms",
+    icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 0 014 0zM7 10a2 2 0 11-4 0 2 0 014 0z" />
+    </svg>`,
+    id: "socios-del-transporte",
+  },
+  // Consultoría en Logística y Transporte Servicio 2
+  {
+    title: "Consultoría en Logística y Transporte",
+    badge: "Estrategia + Ejecución",
+    desc: "Un gran programa basado en volver a los básicos e impulso estratégico, creando soluciones a la medida con un objetivo claro: Control, Crecimiento, Ingresos y Servicio.",    
+    chips: ["Mapeo total de la cadena de suministro",
       "Evaluación de proveedores logísticos",
       "Optimización de rutas y dimensionamiento de flota",
       "Diseño y estandarización de estructura operativa",
@@ -23,31 +44,14 @@ const services = [
       "Benchmark y mejores prácticas",
     ],
     image:
-      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1600&h=900&fit=crop",
-    delay: "120ms",
-    icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 0 014 0zM7 10a2 2 0 11-4 0 2 0 014 0z" />
-    </svg>`,
-  },
-  {
-    title: "Consultoría en Logística y Transporte",
-    badge: "Estrategia + Ejecución",
-    desc: "Procesos, KPIs y disciplina operativa que sí se sostiene.",
-    chips: [
-      "Catálogos",
-      "Base de datos",
-      "Conexiones",
-      "Transformación",
-      "visualización",
-      "automatización",
-    ],
-    image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&h=900&fit=crop",
     delay: "180ms",
     icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
     </svg>`,
+    id: "consultoria-logistica-transporte",
   },
+  // Gemelo Logístico Servicio 3
   {
     title: "Gemelo Logístico",
     badge: "Operación guiada",
@@ -68,29 +72,32 @@ chips: [
   "Alertas",
   "Indicadores",
 ],
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop",
-    delay: "240ms",
+    image:"https://media.istockphoto.com/id/1416553947/es/foto/equipo-de-negocios-concentrado-exitoso-que-trabaja-junto-con-computadoras-en-el-lugar-de.jpg?s=612x612&w=0&k=20&c=DLAlJvXzP6ty3WJnBBtXfVYuYyajatxdJWqsTI23UNQ=",
     icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
     </svg>`,
+    id: "gemelo-logistico",
   },
+  // Inteligencia Logística Servicio 4
   {
     title: "Inteligencia Logística",
     badge: "Data para decidir",
-    desc: "Conexión de transporte para atender las cargas de nuestros clientes, con socios confiables pero con un servicio profesional — nuestra etiqueta Transparente.",
+    desc: "Creamos una estructura y flujo de información para obtener y transformar tus datos y posteriormente visualizarlos en tableros de indicadores, aprender a tomar decisiones estratégicas, simplificar la operación y el tiempo y proyectar grandes resultados.",
 chips: [
-  "Recursos: Auto, 1 tonelada, 3.5 toneladas, Rabón, Torton, Tráiler de 40, 48 y 53 pies",
-  "Tipos: Caja seca y plataforma, todas las configuraciones",
-  "Cobertura: Nacional en todas las configuraciones con protocolos de seguridad establecidos",
-  "Proyectos: Hechos a la medida (evaluación de factibilidad, capacidad y recomendaciones)",
+       "Catálogos",
+      "Base de datos",
+      "Conexiones",
+      "Transformación",
+      "visualización",
+      "automatización",
 ],
     image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&h=900&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop",
     delay: "300ms",
     icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
     </svg>`,
+    id: "inteligencia-logistica",
   },
 ];
 ---
@@ -133,6 +140,7 @@ chips: [
     <div class="flex flex-col gap-8 md:gap-10">
       {services.map((s) => (
         <ServiceCard
+          id={s.id}
           title={s.title}
           desc={s.desc}
           chips={s.chips}

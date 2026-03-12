@@ -4,25 +4,19 @@ const cards = [
     label: "Misión",
     title: "Misión",
     text: "Profesionalizar el entorno logístico, optimizando y proyectando a empresas y transportistas en el futuro.",
-    image:
-      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1400&q=80",
-    icon: "/img/icons/icon1.png",
+    image: "/img/icons/icon1.png",
   },
   {
     label: "Visión",
     title: "Visión",
     text: "Ser el referente de la gestión empresarial y visibilidad logística para México y América.",
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80",
-    icon: "/img/icons/icon2.png",
+    image: "/img/icons/icon2.png",
   },
   {
     label: "Valores",
     title: "Valores y principios",
     text: "Gratitud, Libertad, Integridad, Audacia, Fe y Visión.",
-    image:
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80",
-    icon: "/img/icons/icon3.png",
+    image: "/img/icons/icon3.png",
     chips: ["Gratitud", "Libertad", "Integridad", "Audacia", "Fe", "Visión"],
   },
 ];
@@ -36,6 +30,22 @@ const cards = [
     <div class="absolute right-0 top-1/3 h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"></div>
     <div class="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-sky-400/10 blur-3xl"></div>
   </div>
+
+  <!-- Logo superior izquierda -->
+  <img
+    src="/img/logo.png"
+    alt="Logo de la empresa"
+    class="absolute left-6 top-6 z-20 h-14 w-auto object-contain opacity-95 brightness-0 invert md:left-10 md:top-10 md:h-16 lg:h-20"
+    loading="lazy"
+  />
+
+  <!-- Logo superior derecha -->
+  <img
+    src="/img/logo.png"
+    alt="Logo de la empresa"
+    class="absolute right-6 top-6 z-20 h-14 w-auto object-contain opacity-95 brightness-0 invert md:right-10 md:top-10 md:h-16 lg:h-20"
+    loading="lazy"
+  />
 
   <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
     <!-- Encabezado -->
@@ -57,39 +67,25 @@ const cards = [
     <div class="mt-14 grid gap-7 lg:grid-cols-3">
       {cards.map((card) => (
         <article class="group overflow-hidden rounded-[2rem] border border-white/10 bg-[#0a245e]/90 shadow-[0_24px_70px_rgba(0,0,0,0.32)] backdrop-blur-sm transition duration-500 hover:-translate-y-2 hover:shadow-[0_35px_90px_rgba(0,0,0,0.40)]">
+          
           <!-- Imagen -->
-          <div class="relative h-[290px] overflow-hidden">
+          <div class="relative h-[290px] overflow-hidden bg-white">
             <img
               src={card.image}
               alt={card.title}
-              class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]"
+              class="absolute left-1/2 top-1/2 max-h-[70%] max-w-[70%] -translate-x-1/2 -translate-y-1/2 object-contain transition duration-700 group-hover:scale-[1.05]"
               loading="lazy"
-              referrerpolicy="no-referrer"
             />
 
-            <!-- overlays premium -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#061a44]/95 via-[#082763]/68 to-[#0f3279]/18"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-[#061a44]/48 via-transparent to-transparent"></div>
-            <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),transparent_28%,transparent_72%,rgba(0,0,0,0.18))]"></div>
-
             <div class="relative z-10 flex h-full flex-col justify-between p-6">
-              <div class="flex items-start justify-between gap-4">
-                <div class="flex h-16 w-16 items-center justify-center rounded-[1.35rem] border border-cyan-300/20 bg-cyan-300/10 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
-                  <img
-                    src={card.icon}
-                    alt={`Ícono de ${card.title}`}
-                    class="h-8 w-8 object-contain"
-                    loading="lazy"
-                  />
-                </div>
-
-                <span class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/95 backdrop-blur-md">
+              <div class="flex items-start justify-end">
+                <span class="rounded-full border border-slate-200 bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-slate-700 shadow-sm">
                   {card.label}
                 </span>
               </div>
 
               <div>
-                <h3 class="max-w-sm text-[2rem] font-bold leading-[1.05] tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)] md:text-[2.3rem]">
+                <h3 class="max-w-sm text-[2rem] font-bold leading-[1.05] tracking-tight text-[#061a44] md:text-[2.3rem]">
                   {card.title}
                 </h3>
               </div>

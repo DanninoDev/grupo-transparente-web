@@ -1,150 +1,111 @@
 ---
+interface Props {
+  title: string;
+  desc: string;
+  chips: string[];
+  badge?: string;
+  icon?: string;
+  image: string;
+  href: string;
+  cta?: string;
+  delay?: string;
+  logo?: string;
+  id?: string;
+}
+
 const {
   title,
   desc,
-  icon,
-  accent = "from-[#0C245C] to-[#1e4a8f]",
   chips = [],
-  bullets = [],
-  href = "#agenda",
-  cta = "Solicitar información",
-  delay = "0ms",
   badge,
-  kicker,
+  icon,
   image,
-  imageAlt = "",
-  imagePosition = "right",
-  minHeight = "78vh",
+  href,
+  cta = "Agendar diagnóstico",
+  delay = "0ms",
+  logo = "/img/logo.png",
+  id,
 } = Astro.props;
-
-const isLeft = imagePosition === "left";
-const allBullets = Array.isArray(bullets) ? bullets : [];
-const allChips = Array.isArray(chips) ? chips : [];
 ---
 
 <article
-  class="st-reveal group relative overflow-hidden rounded-[2rem] bg-white border border-gray-100 shadow-[0_22px_70px_rgba(2,6,23,0.10)] hover:shadow-[0_28px_90px_rgba(2,6,23,0.14)] transition-all duration-300"
+  class="st-reveal overflow-hidden rounded-[2rem] bg-white shadow-[0_20px_60px_rgba(12,36,92,0.12)]"
   style={`--d:${delay}`}
+  id={id}
 >
-  <div class="pointer-events-none absolute -top-28 -right-28 w-[28rem] h-[28rem] rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-cyan-400/10"></div>
-
-  <div class={`${image ? "grid lg:grid-cols-2" : ""}`} style={`min-height:${minHeight};`}>
-    {image && (
-      <div class={`${isLeft ? "order-1 lg:order-1" : "order-1 lg:order-2"} relative min-h-[320px] lg:min-h-full`}>
-        <div class="absolute inset-0">
-          <img
-            src={image}
-            alt={imageAlt || title}
-            loading="lazy"
-            class="h-full w-full object-cover"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent"></div>
-          <div class={`absolute inset-0 bg-gradient-to-br ${accent} opacity-[0.10] mix-blend-multiply`}></div>
-        </div>
-
-        <div class="relative p-6 lg:p-8">
-          <div class="inline-flex items-center gap-2 rounded-2xl bg-white/85 backdrop-blur px-3 py-2 border border-white/60 shadow-sm">
-            <span class={`h-2.5 w-2.5 rounded-full bg-gradient-to-br ${accent}`}></span>
-            <span class="text-xs font-semibold text-[#0C245C]">Servicio</span>
-
-            {badge && (
-              <span class="ml-1 inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#0C245C]/10 text-[#0C245C]">
-                {badge}
-              </span>
-            )}
-          </div>
-        </div>
+  <div class="grid md:grid-cols-[1.02fr_0.98fr]">
+    <!-- Columna izquierda -->
+    <div class="relative flex flex-col justify-between p-8 md:p-12 bg-[#f8f8f8]">
+      <!-- Logo arriba izquierda -->
+      <div class="mb-8">
+        <img
+          src={logo}
+          alt="Logo de la empresa"
+          class="h-20 w-auto object-contain"
+          loading="lazy"
+        />
       </div>
-    )}
 
-    <div class={`${image ? (isLeft ? "order-2 lg:order-2" : "order-2 lg:order-1") : ""} relative`}>
-      <div class={`${image ? "h-full" : ""} p-8 md:p-10 lg:p-12 flex flex-col justify-center`}>
-        <div class="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-6 md:gap-7 items-start">
-          <div class="pt-1">
-            <div
-              class={`w-16 h-16 rounded-2xl bg-gradient-to-br ${accent} flex items-center justify-center shadow-[0_18px_50px_rgba(12,36,92,0.25)] group-hover:scale-110 transition-transform duration-300`}
-              aria-hidden="true"
-            >
-              {icon ? (
-                <Fragment set:html={icon} />
-              ) : (
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              )}
-            </div>
+      <div>
+        <div class="mb-6 flex items-center gap-6">
+          <div class="flex h-[72px] w-[72px] items-center justify-center rounded-[1.2rem] bg-[#173b84] shadow-[0_12px_24px_rgba(23,59,132,0.18)]">
+            <Fragment set:html={icon} />
           </div>
 
-          <div class="min-w-0">
-            <div class="max-w-[700px]">
-              {kicker && (
-                <div class="text-xs md:text-sm font-bold tracking-[0.18em] uppercase text-[#0C245C]/60">
-                  {kicker}
-                </div>
-              )}
-
-              <div class="flex items-center gap-3 flex-wrap">
-                <h3 class="text-[34px] md:text-[42px] leading-[1.05] font-black tracking-tight text-[#0C245C]">
-                  {title}
-                </h3>
-
-                {!image && badge && (
-                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#0C245C]/10 text-[#0C245C]">
-                    {badge}
-                  </span>
-                )}
-              </div>
-
-              <p class="mt-4 text-[16px] md:text-[17px] leading-relaxed text-gray-600 text-balance">
-                {desc}
-              </p>
-
-              {allChips.length > 0 && (
-                <div class="mt-6 flex flex-wrap gap-2.5">
-                  {allChips.map((c) => (
-                    <span class="px-3 py-2 rounded-full bg-slate-100 text-[#0C245C] text-xs md:text-sm font-semibold ring-1 ring-slate-200">
-                      {c}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              {allBullets.length > 0 && (
-                <ul class="mt-7 space-y-3">
-                  {allBullets.map((b) => (
-                    <li class="flex items-start gap-3">
-                      <span class={`mt-2 h-2.5 w-2.5 rounded-full bg-gradient-to-br ${accent} flex-shrink-0`}></span>
-                      <span class="text-sm md:text-base text-gray-700 leading-relaxed">
-                        {b}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              <div class="mt-9 flex items-center gap-4 flex-wrap">
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#0C245C] text-white px-7 py-4 text-sm font-bold shadow-[0_18px_50px_rgba(12,36,92,0.30)] transition hover:-translate-y-[1px] active:scale-[0.99]"
-                >
-                  {cta}
-                  <span class="text-base opacity-85">›</span>
-                </a>
-              </div>
-            </div>
+          <div>
+            <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[#0C245C]">
+              {title}
+            </h3>
           </div>
+        </div>
+
+        <p class="max-w-2xl text-xl leading-relaxed text-slate-600">
+          {desc}
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          {chips.map((chip) => (
+            <span class="rounded-full border border-slate-200 bg-[#eef1f6] px-4 py-3 text-base font-semibold text-[#243f79]">
+              {chip}
+            </span>
+          ))}
         </div>
       </div>
 
-      <div class="absolute left-0 right-0 bottom-0 h-1 bg-gradient-to-r from-[#0C245C] to-transparent"></div>
+      <div class="mt-10">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-[1.1rem] bg-[#102f78] px-7 py-4 text-lg font-bold text-white shadow-[0_18px_35px_rgba(16,47,120,0.22)] transition hover:-translate-y-0.5"
+        >
+          {cta} <span class="ml-2">›</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="relative min-h-[420px] overflow-hidden bg-sky-500">
+      <img
+        src={image}
+        alt={title}
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
+      />
+
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0C245C]/10 via-transparent to-transparent"></div>
+
+      <div class="absolute left-6 top-6">
+        <div class="inline-flex items-center gap-3 rounded-full bg-white/80 px-4 py-3 backdrop-blur-md">
+          <span class="h-3 w-3 rounded-full bg-[#173b84]"></span>
+          <span class="text-sm font-semibold text-[#173b84]">Servicio</span>
+          {badge && (
+            <span class="rounded-full bg-[#d8e6f4] px-4 py-1.5 text-sm font-semibold text-[#173b84]">
+              {badge}
+            </span>
+          )}
+        </div>
+      </div>
     </div>
   </div>
 </article>
-
-<style>
-  .text-balance {
-    text-wrap: balance;
-  }
-</style>

@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 export const prerender = false;
 
@@ -8,15 +8,9 @@ export const POST: APIRoute = async ({ request }) => {
     const contentType = request.headers.get("content-type") || "";
 
     if (!contentType.includes("application/json")) {
-      return new Response(
-        JSON.stringify({
-          ok: false,
-          message: "El formulario debe enviar JSON.",
-        }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
+      return jsonResponse(
+        { ok: false, message: "El formulario debe enviar JSON." },
+        400
       );
     }
 
@@ -29,36 +23,40 @@ export const POST: APIRoute = async ({ request }) => {
     const mensaje = String(body?.mensaje ?? "").trim();
 
     if (!nombre || !email || !mensaje) {
-      return new Response(
-        JSON.stringify({
-          ok: false,
-          message: "Nombre, email y mensaje son obligatorios.",
-        }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
+      return jsonResponse(
+        { ok: false, message: "Nombre, email y mensaje son obligatorios." },
+        400
       );
     }
 
-    const apiKey = import.meta.env.RESEND_API_KEY;
-    const from = import.meta.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+    const smtpHost = import.meta.env.SMTP_HOST;
+    const smtpPort = Number(import.meta.env.SMTP_PORT || 465);
+    const smtpSecure = String(import.meta.env.SMTP_SECURE || "true") === "true";
+    const smtpUser = import.meta.env.SMTP_USER;
+    const smtpPass = import.meta.env.SMTP_PASS;
     const to = import.meta.env.CONTACT_TO_EMAIL;
 
-    if (!apiKey || !to) {
-      return new Response(
-        JSON.stringify({
-          ok: false,
-          message: "Faltan variables de entorno de Resend.",
-        }),
+    if (!smtpHost || !smtpUser || !smtpPass || !to) {
+      return jsonResponse(
         {
-          status: 500,
-          headers: { "Content-Type": "application/json" },
-        }
+          ok: false,
+          message: "Faltan variables SMTP en el .env.",
+        },
+        500
       );
     }
 
-    const resend = new Resend(apiKey);
+    const transporter = nodemailer.createTransport({
+      host: smtpHost,
+      port: smtpPort,
+      secure: smtpSecure,
+      auth: {
+        user: smtpUser,
+        pass: smtpPass,
+      },
+    });
+
+    await transporter.verify();
 
     const html = `
       <div style="font-family:Arial,Helvetica,sans-serif;background:#f8fafc;padding:24px;">
@@ -85,54 +83,51 @@ export const POST: APIRoute = async ({ request }) => {
       </div>
     `;
 
-    const { error } = await resend.emails.send({
-      from: `Resend <${from}>`,
-      to: [to],
+    await transporter.sendMail({
+      from: `"Formulario Web" <${smtpUser}>`,
+      to,
       replyTo: email,
       subject: `Nuevo contacto desde la web - ${nombre}`,
       html,
+      text: `
+Nombre: ${nombre}
+Empresa: ${empresa || "No especificada"}
+Email: ${email}
+Teléfono: ${telefono || "No especificado"}
+
+Mensaje:
+${mensaje}
+      `.trim(),
     });
 
-    if (error) {
-      console.error("Resend error:", error);
-
-      return new Response(
-        JSON.stringify({
-          ok: false,
-          message: "No se pudo enviar el correo.",
-        }),
-        {
-          status: 500,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-    }
-
-    return new Response(
-      JSON.stringify({
-        ok: true,
-        message: "Mensaje enviado correctamente.",
-      }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
+    return jsonResponse(
+      { ok: true, message: "Mensaje enviado correctamente." },
+      200
     );
   } catch (error) {
     console.error("Error en /api/contact:", error);
 
-    return new Response(
-      JSON.stringify({
-        ok: false,
-        message: error instanceof Error ? error.message : "Error interno del servidor.",
-      }),
+    return jsonResponse(
       {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      }
+        ok: false,
+        message:
+          error instanceof Error
+            ? error.message
+            : "Error interno del servidor.",
+      },
+      500
     );
   }
 };
+
+function jsonResponse(data: unknown, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
 
 function escapeHtml(value: string): string {
   return value
