@@ -2,16 +2,20 @@
 const heroKicker = "";
 const pill = "";
 const title = "TE PRESENTAMOS A TU NUEVA EMPRESA DE TRANSPORTE.";
-const desc ="Nuestro modelo estándar de operación, conocimiento y control de la empresa te llevarán a la profesionalización y el crecimiento.";
+const desc =
+  "Nuestro modelo estándar de operación, conocimiento y control de la empresa te llevarán a la profesionalización y el crecimiento.";
 ---
 
-<section class="relative w-full overflow-hidden bg-[#06163a]">
+<section class="relative w-full overflow-hidden bg-[#0d2f74]">
   <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-br from-[#06163a] via-[#0b2a66] to-[#1e56b8]"></div>
+  <div class="absolute inset-0 bg-[linear-gradient(115deg,#78aee8_0%,#4e86d3_20%,#2459b3_42%,#123f96_68%,#0a2a73_100%)]"></div>
+
+  <!-- Luz suave izquierda para que el logo azul contraste mejor -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_18%_32%,rgba(255,255,255,0.16)_0%,rgba(255,255,255,0.08)_22%,rgba(255,255,255,0.03)_38%,transparent_60%)]"></div>
 
   <!-- Subtle grid overlay -->
   <div
-    class="absolute inset-0 opacity-[0.16] mix-blend-soft-light"
+    class="absolute inset-0 opacity-[0.12] mix-blend-soft-light"
     style="
       background-image:
         linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px),
@@ -23,31 +27,28 @@ const desc ="Nuestro modelo estándar de operación, conocimiento y control de l
   ></div>
 
   <!-- Blobs -->
-  <div class="absolute -top-24 -left-24 sm:-top-32 sm:-left-32 w-[320px] h-[320px] sm:w-[520px] sm:h-[520px] lg:w-[640px] lg:h-[640px] bg-cyan-400/16 blur-3xl rounded-full"></div>
-  <div class="absolute -bottom-24 -right-24 sm:-bottom-32 sm:-right-32 w-[360px] h-[360px] sm:w-[560px] sm:h-[560px] lg:w-[760px] lg:h-[760px] bg-blue-200/14 blur-3xl rounded-full"></div>
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[520px] sm:h-[520px] lg:w-[780px] lg:h-[780px] bg-white/5 blur-3xl rounded-full"></div>
-
-  <!-- Logo superior izquierda -->
-  <img
-    src="/img/logo.png"
-    alt="Logo de la empresa"
-    class="absolute left-5 top-5 z-20 h-15 w-auto object-contain brightness-0 invert opacity-95 sm:left-8 sm:top-8 sm:h-12 lg:h-14"
-    loading="lazy"
-  />
-
-  <!-- Logo superior derecha -->
-  <img
-    src="/img/logo.png"
-    alt="Logo de la empresa"
-    class="absolute right-5 top-5 z-20 h-30 w-auto object-contain brightness-0 invert opacity-95 sm:right-8 sm:top-8 sm:h-12 lg:h-14"
-    loading="lazy"
-  />
+  <div class="absolute -top-24 -left-24 sm:-top-32 sm:-left-32 w-[320px] h-[320px] sm:w-[520px] sm:h-[520px] lg:w-[640px] lg:h-[640px] bg-cyan-200/14 blur-3xl rounded-full"></div>
+  <div class="absolute -bottom-24 -right-24 sm:-bottom-32 sm:-right-32 w-[360px] h-[360px] sm:w-[560px] sm:h-[560px] lg:w-[760px] lg:h-[760px] bg-blue-200/12 blur-3xl rounded-full"></div>
+  <div class="absolute top-1/2 left-[32%] -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[520px] sm:h-[520px] lg:w-[780px] lg:h-[780px] bg-white/6 blur-3xl rounded-full"></div>
 
   <div class="relative min-h-screen">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
       <div class="min-h-screen flex items-center py-16 sm:py-20 lg:py-24">
         <!-- CONTENT -->
         <div class="w-full lg:max-w-[56%] xl:max-w-[52%] text-white lg:pr-10 xl:pr-14 2xl:pr-24">
+          <!-- LOGO -->
+          <div
+            data-hero="logo"
+            class="mb-8 sm:mb-10 opacity-0 translate-y-2"
+          >
+            <img
+              src="/img/logo.png"
+              alt="Logo"
+              class="h-16 sm:h-20 md:h-24 w-auto object-contain"
+              loading="eager"
+            />
+          </div>
+
           {heroKicker && (
             <div
               data-hero="kicker"
@@ -73,7 +74,7 @@ const desc ="Nuestro modelo estándar de operación, conocimiento y control de l
           <h1 class="mt-2 sm:mt-3 text-[2.4rem] leading-[1.05] sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-[82px] font-semibold tracking-tight">
             <span
               data-hero="title"
-              class="bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent inline-block opacity-0 translate-y-2"
+              class="bg-gradient-to-r from-white via-cyan-50 to-white bg-clip-text text-transparent inline-block opacity-0 translate-y-2"
             >
               {title}
             </span>
@@ -81,12 +82,15 @@ const desc ="Nuestro modelo estándar de operación, conocimiento y control de l
 
           <p
             data-hero="desc"
-            class="mt-5 sm:mt-7 text-base sm:text-lg md:text-xl xl:text-[22px] text-white/80 max-w-2xl leading-relaxed opacity-0 translate-y-2"
+            class="mt-5 sm:mt-7 text-base sm:text-lg md:text-xl xl:text-[22px] text-white/85 max-w-2xl leading-relaxed opacity-0 translate-y-2"
           >
             {desc}
           </p>
 
-          <div data-hero="cta" class="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 opacity-0 translate-y-2">
+          <div
+            data-hero="cta"
+            class="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 opacity-0 translate-y-2"
+          >
             <a
               href="https://wa.me/525524685599?text=Hola%20%F0%9F%91%8B%20Vengo%20desde%20tu%20sitio%20web.%20Me%20interesa%20agendar%20una%20reuni%C3%B3n%20para%20conocer%20c%C3%B3mo%20pueden%20ayudarme%20con%20transporte%20y%20log%C3%ADstica.%20%C2%BFMe%20compartes%20disponibilidad%20esta%20semana%3F"
               target="_blank"
@@ -240,6 +244,7 @@ const desc ="Nuestro modelo estándar de operación, conocimiento y control de l
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const q = (sel) => document.querySelector(sel);
 
+    const logoEl = q('[data-hero="logo"]');
     const kickerEl = q('[data-hero="kicker"]');
     const pillEl = q('[data-hero="pill"]');
     const titleEl = q('[data-hero="title"]');
@@ -259,18 +264,19 @@ const desc ="Nuestro modelo estándar de operación, conocimiento y control de l
     };
 
     if (reduce) {
-      [kickerEl, pillEl, titleEl, descEl, chipsEl, ctaEl].forEach(showNow);
+      [logoEl, kickerEl, pillEl, titleEl, descEl, chipsEl, ctaEl].forEach(showNow);
       statsEls.forEach(showNow);
       if (truck) truck.style.opacity = "1";
       if (truckMobile) truckMobile.style.opacity = "1";
     } else {
       const steps = [
-        { el: kickerEl, delay: 20 },
-        { el: pillEl, delay: 70 },
-        { el: titleEl, delay: 140 },
-        { el: descEl, delay: 210 },
-        { el: chipsEl, delay: 260 },
-        { el: ctaEl, delay: 320 },
+        { el: logoEl, delay: 20 },
+        { el: kickerEl, delay: 60 },
+        { el: pillEl, delay: 100 },
+        { el: titleEl, delay: 160 },
+        { el: descEl, delay: 230 },
+        { el: chipsEl, delay: 280 },
+        { el: ctaEl, delay: 340 },
       ];
 
       for (const s of steps) {

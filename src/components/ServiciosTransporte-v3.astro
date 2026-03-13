@@ -8,27 +8,7 @@ const sectionDesc =
 
   // Datos de servicios (título, descripción, chips, imagen, etc.)
 const services = [
-  // Socios del Transporte Servicio 1°
-  {
-    title: "Socios del Transporte",
-    badge: "Transparente",
-    desc: "Conexión de transporte para atender las cargas de nuestros clientes, con socios confiables pero con un servicio profesional — nuestra etiqueta Transparente.",
-    chips: [
-  "Recursos: Auto, 1 tonelada, 3.5 toneladas, Rabón, Torton, Tráiler de 40, 48 y 53 pies",
-  "Tipos: Caja seca y plataforma, todas las configuraciones",
-  "Cobertura: Nacional en todas las configuraciones con protocolos de seguridad establecidos",
-  "Proyectos: Hechos a la medida (evaluación de factibilidad, capacidad y recomendaciones)",
-  ],
-  
-    image:
-      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1600&h=900&fit=crop",
-    delay: "120ms",
-    icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 0 014 0zM7 10a2 2 0 11-4 0 2 0 014 0z" />
-    </svg>`,
-    id: "socios-del-transporte",
-  },
-  // Consultoría en Logística y Transporte Servicio 2
+   // Consultoría en Logística y Transporte Servicio 1
   {
     title: "Consultoría en Logística y Transporte",
     badge: "Estrategia + Ejecución",
@@ -51,7 +31,29 @@ const services = [
     </svg>`,
     id: "consultoria-logistica-transporte",
   },
-  // Gemelo Logístico Servicio 3
+
+  // Inteligencia Logística Servicio 2
+  {
+    title: "Inteligencia Logística",
+    badge: "Data para decidir",
+    desc: "Creamos una estructura y flujo de información para obtener y transformar tus datos y posteriormente visualizarlos en tableros de indicadores, aprender a tomar decisiones estratégicas, simplificar la operación y el tiempo y proyectar grandes resultados.",
+chips: [
+       "Catálogos",
+      "Base de datos",
+      "Conexiones",
+      "Transformación",
+      "visualización",
+      "automatización",
+],
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop",
+    delay: "300ms",
+    icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+    </svg>`,
+    id: "inteligencia-logistica",
+  },
+    // Gemelo Logístico Servicio 3
   {
     title: "Gemelo Logístico",
     badge: "Operación guiada",
@@ -78,27 +80,29 @@ chips: [
     </svg>`,
     id: "gemelo-logistico",
   },
-  // Inteligencia Logística Servicio 4
+  
+
+  // Socios del Transporte Servicio 1°
   {
-    title: "Inteligencia Logística",
-    badge: "Data para decidir",
-    desc: "Creamos una estructura y flujo de información para obtener y transformar tus datos y posteriormente visualizarlos en tableros de indicadores, aprender a tomar decisiones estratégicas, simplificar la operación y el tiempo y proyectar grandes resultados.",
-chips: [
-       "Catálogos",
-      "Base de datos",
-      "Conexiones",
-      "Transformación",
-      "visualización",
-      "automatización",
-],
+    title: "Socios del Transporte",
+    badge: "Transparente",
+    desc: "Conexión de transporte para atender las cargas de nuestros clientes, con socios confiables pero con un servicio profesional — nuestra etiqueta Transparente.",
+    chips: [
+  "Recursos: Auto, 1 tonelada, 3.5 toneladas, Rabón, Torton, Tráiler de 40, 48 y 53 pies",
+  "Tipos: Caja seca y plataforma, todas las configuraciones",
+  "Cobertura: Nacional en todas las configuraciones con protocolos de seguridad establecidos",
+  "Proyectos: Hechos a la medida (evaluación de factibilidad, capacidad y recomendaciones)",
+  ],
+  
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&h=900&fit=crop",
-    delay: "300ms",
+      "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1600&h=900&fit=crop",
+    delay: "120ms",
     icon: `<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 0 014 0zM7 10a2 2 0 11-4 0 2 0 014 0z" />
     </svg>`,
-    id: "inteligencia-logistica",
+    id: "socios-del-transporte",
   },
+
 ];
 ---
 
